@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,16 @@
 		4BC206B82403B83C00F250F1 /* Nenno_s_PizzaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206B72403B83C00F250F1 /* Nenno_s_PizzaUITests.swift */; };
 		4BC206CB2403B98700F250F1 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206CA2403B98700F250F1 /* Builder.swift */; };
 		4BC206D22403BE4500F250F1 /* LaunchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206D12403BE4500F250F1 /* LaunchViewPresenter.swift */; };
+		9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E1240459B700B4C40B /* GoodsList.swift */; };
+		9216F6E524045F9D00B4C40B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9216F6E424045F9D00B4C40B /* Kingfisher */; };
+		9216F6E7240465C600B4C40B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E6240465C600B4C40B /* Extensions.swift */; };
+		9216F6E92404669E00B4C40B /* PizzaPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E82404669E00B4C40B /* PizzaPriceView.swift */; };
+		9220D2C32404367400E66F1C /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C22404367400E66F1C /* LaunchView.swift */; };
+		9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C52404383B00E66F1C /* NetworkManager.swift */; };
+		9220D2C824043D5300E66F1C /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C724043D5300E66F1C /* Good.swift */; };
+		9220D2CA24043ED000E66F1C /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C924043ED000E66F1C /* Drink.swift */; };
+		9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2CB240441AD00E66F1C /* Pizza.swift */; };
+		92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +63,15 @@
 		4BC206B92403B83C00F250F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BC206CA2403B98700F250F1 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		4BC206D12403BE4500F250F1 /* LaunchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewPresenter.swift; sourceTree = "<group>"; };
+		9216F6E1240459B700B4C40B /* GoodsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsList.swift; sourceTree = "<group>"; };
+		9216F6E6240465C600B4C40B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9216F6E82404669E00B4C40B /* PizzaPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPriceView.swift; sourceTree = "<group>"; };
+		9220D2C22404367400E66F1C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		9220D2C52404383B00E66F1C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9220D2C724043D5300E66F1C /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
+		9220D2C924043ED000E66F1C /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		9220D2CB240441AD00E66F1C /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9216F6E524045F9D00B4C40B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +162,10 @@
 		4BC206C62403B89C00F250F1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9220D2C42404382900E66F1C /* Network */,
 				4BC206CC2403B98A00F250F1 /* Builder */,
 				4BC206C92403B96C00F250F1 /* CoreData */,
+				9216F6E6240465C600B4C40B /* Extensions.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,14 +179,13 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		4BC206C82403B8BE00F250F1 /* LaunchModule */ = {
+		4BC206C82403B8BE00F250F1 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				4BC206D02403BE2C00F250F1 /* Model */,
 				4BC206CF2403BE2800F250F1 /* View */,
 				4BC206CE2403BE1D00F250F1 /* Presenter */,
 			);
-			path = LaunchModule;
+			path = Launch;
 			sourceTree = "<group>";
 		};
 		4BC206C92403B96C00F250F1 /* CoreData */ = {
@@ -186,7 +207,8 @@
 		4BC206CD2403BE0100F250F1 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				4BC206C82403B8BE00F250F1 /* LaunchModule */,
+				4BC206D02403BE2C00F250F1 /* Model */,
+				4BC206C82403B8BE00F250F1 /* Launch */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -202,6 +224,9 @@
 		4BC206CF2403BE2800F250F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9220D2C22404367400E66F1C /* LaunchView.swift */,
+				92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */,
+				9216F6E82404669E00B4C40B /* PizzaPriceView.swift */,
 				4BC206962403B83800F250F1 /* LaunchViewController.swift */,
 			);
 			path = View;
@@ -210,8 +235,20 @@
 		4BC206D02403BE2C00F250F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9220D2C724043D5300E66F1C /* Good.swift */,
+				9216F6E1240459B700B4C40B /* GoodsList.swift */,
+				9220D2C924043ED000E66F1C /* Drink.swift */,
+				9220D2CB240441AD00E66F1C /* Pizza.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9220D2C42404382900E66F1C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9220D2C52404383B00E66F1C /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +267,9 @@
 			dependencies = (
 			);
 			name = "Nenno's Pizza";
+			packageProductDependencies = (
+				9216F6E424045F9D00B4C40B /* Kingfisher */,
+			);
 			productName = "Nenno's Pizza";
 			productReference = 4BC2068F2403B83800F250F1 /* Nenno's Pizza.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +342,9 @@
 				Base,
 			);
 			mainGroup = 4BC206862403B83800F250F1;
+			packageReferences = (
+				9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 4BC206902403B83800F250F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,12 +387,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9220D2C824043D5300E66F1C /* Good.swift in Sources */,
 				4BC206972403B83800F250F1 /* LaunchViewController.swift in Sources */,
 				4BC206932403B83800F250F1 /* AppDelegate.swift in Sources */,
 				4BC206D22403BE4500F250F1 /* LaunchViewPresenter.swift in Sources */,
+				92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */,
+				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
+				9220D2C32404367400E66F1C /* LaunchView.swift in Sources */,
+				9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */,
 				4BC206952403B83800F250F1 /* SceneDelegate.swift in Sources */,
 				4BC2069D2403B83800F250F1 /* Nenno_s_Pizza.xcdatamodeld in Sources */,
+				9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */,
+				9220D2CA24043ED000E66F1C /* Drink.swift in Sources */,
 				4BC206CB2403B98700F250F1 /* Builder.swift in Sources */,
+				9216F6E7240465C600B4C40B /* Extensions.swift in Sources */,
+				9216F6E92404669E00B4C40B /* PizzaPriceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +716,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9216F6E424045F9D00B4C40B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4BC2069B2403B83800F250F1 /* Nenno_s_Pizza.xcdatamodeld */ = {

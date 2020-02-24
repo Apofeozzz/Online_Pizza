@@ -18,11 +18,14 @@ class Builder: BuilderProtocol {
 
     static func launchScreen() -> LaunchViewController {
         
-        let launchVC = LaunchViewController()
+        let launchVC 		= LaunchViewController()
+		
+		let networkManager 	= NetworkManager.shared
         
-        let presenter = LaunchViewPresenter(view: launchVC)
+		let presenter 		= LaunchViewPresenter(view: launchVC,
+											networkManager: networkManager)
         
-        launchVC.presenter = presenter
+        launchVC.presenter 	= presenter
         
         return launchVC
         
