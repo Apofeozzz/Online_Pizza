@@ -28,6 +28,16 @@ class PizzaTableViewCell: UITableViewCell {
 	var greyView:			UIView!
     
     // MARK: - DATA SOURCE -
+	
+	var basePrice: Double = 0 {
+		
+		willSet {
+			
+			priceView.priceLabel.text = "$\(newValue)"
+			
+		}
+		
+	}
     
     var pizza: Pizza? {
         
@@ -51,6 +61,8 @@ class PizzaTableViewCell: UITableViewCell {
 						
 						if index < ingredients.count - 1 { string += ", " }
 						
+						basePrice += good.price
+	
 					}
 					
 				}
@@ -64,8 +76,6 @@ class PizzaTableViewCell: UITableViewCell {
 				pizzaImageView.kf.setImage(with: url)
 				
 			}
-			
-			priceView.priceLabel.text = "$14"
             
         }
         
@@ -226,7 +236,7 @@ class PizzaTableViewCell: UITableViewCell {
 			priceView.bottomAnchor		.constraint(equalTo: bottomAnchor, constant: -12),
 			priceView.trailingAnchor	.constraint(equalTo: trailingAnchor, constant: -12),
 			priceView.heightAnchor		.constraint(equalToConstant: 35),
-			priceView.widthAnchor		.constraint(equalToConstant: 70)
+			priceView.widthAnchor		.constraint(equalToConstant: 80)
 		
 		])
 		

@@ -129,14 +129,24 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: PizzaTableViewCell.cellId, for: indexPath) as! PizzaTableViewCell
         
-		if let pizzas = presenter.pizzas?.pizzas {
+		if let pizzas = presenter.pizzas {
 			
-			cell.pizza = pizzas[indexPath.row]
+			let pizza 		= pizzas.pizzas[indexPath.row]
+			
+			cell.basePrice 	= pizzas.basePrice
+			
+			cell.pizza 		= pizza
 			
 		}
 		
         return cell
         
     }
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		print(indexPath.row)
+		
+	}
     
 }

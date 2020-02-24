@@ -29,6 +29,9 @@
 		926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD792404742A00FBC03A /* LaunchView.swift */; };
 		926FAD7D2404758C00FBC03A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD7C2404758C00FBC03A /* LaunchViewController.swift */; };
 		926FAD812404762B00FBC03A /* LaunchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD802404762B00FBC03A /* LaunchViewPresenter.swift */; };
+		929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE49F240481AD00258DD2 /* IngredientsView.swift */; };
+		929EE4A2240481B900258DD2 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE4A1240481B900258DD2 /* IngredientsViewController.swift */; };
+		929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE4A5240481ED00258DD2 /* IngredientViewPresenter.swift */; };
 		92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +80,9 @@
 		926FAD792404742A00FBC03A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		926FAD7C2404758C00FBC03A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		926FAD802404762B00FBC03A /* LaunchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewPresenter.swift; sourceTree = "<group>"; };
+		929EE49F240481AD00258DD2 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		929EE4A1240481B900258DD2 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		929EE4A5240481ED00258DD2 /* IngredientViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewPresenter.swift; sourceTree = "<group>"; };
 		92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +222,7 @@
 				4BC206D02403BE2C00F250F1 /* Model */,
 				926FAD7B2404742E00FBC03A /* Launch */,
 				4BC206C82403B8BE00F250F1 /* Menu */,
+				929EE49E2404819300258DD2 /* Ingredients */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -280,6 +287,32 @@
 			isa = PBXGroup;
 			children = (
 				926FAD802404762B00FBC03A /* LaunchViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		929EE49E2404819300258DD2 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				929EE4A3240481BC00258DD2 /* View */,
+				929EE4A4240481C800258DD2 /* Presenter */,
+			);
+			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		929EE4A3240481BC00258DD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				929EE49F240481AD00258DD2 /* IngredientsView.swift */,
+				929EE4A1240481B900258DD2 /* IngredientsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		929EE4A4240481C800258DD2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				929EE4A5240481ED00258DD2 /* IngredientViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -423,13 +456,16 @@
 				9220D2C824043D5300E66F1C /* Good.swift in Sources */,
 				926FAD7D2404758C00FBC03A /* LaunchViewController.swift in Sources */,
 				926FAD812404762B00FBC03A /* LaunchViewPresenter.swift in Sources */,
+				929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */,
 				926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */,
 				4BC206972403B83800F250F1 /* MenuViewController.swift in Sources */,
+				929EE4A2240481B900258DD2 /* IngredientsViewController.swift in Sources */,
 				4BC206932403B83800F250F1 /* AppDelegate.swift in Sources */,
 				4BC206D22403BE4500F250F1 /* MenuViewPresenter.swift in Sources */,
 				92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */,
 				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
 				9220D2C32404367400E66F1C /* MenuView.swift in Sources */,
+				929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */,
 				9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */,
 				4BC206952403B83800F250F1 /* SceneDelegate.swift in Sources */,
 				4BC2069D2403B83800F250F1 /* Nenno_s_Pizza.xcdatamodeld in Sources */,
