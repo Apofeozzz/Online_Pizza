@@ -234,7 +234,7 @@ class PizzaTableViewCell: UITableViewCell {
 		
 			ingredientsLabel.bottomAnchor.constraint(equalTo: priceView.bottomAnchor),
 			ingredientsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-			ingredientsLabel.trailingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: -12)
+			ingredientsLabel.trailingAnchor.constraint(equalTo: priceView.leadingAnchor, constant: -50)
 		
 		])
 		

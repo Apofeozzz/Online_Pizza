@@ -2,7 +2,7 @@
 //  LaunchViewPresenter.swift
 //  Nenno's Pizza
 //
-//  Created by Denis Grishchenko on 2/24/20.
+//  Created by Denis Grishchenko on 24.02.2020.
 //  Copyright © 2020 DenisGrishchenko. All rights reserved.
 //
 
@@ -10,23 +10,19 @@ import UIKit
 
 protocol LaunchViewProtocol: class {
 	
-	func reload()
+	func moveToMenuController()
 	
 }
 
-protocol LaunchViewPresenterProtocol: class {
+protocol LaunchViewPresenterProtocol {
 	
-	var view: LaunchViewProtocol? { get set }
+	var view: LaunchViewProtocol? { set get }
 	
-	var networkManager: NetworkManager? { get set }
+	var networkManager: NetworkManager? { set get }
 	
-	var pizzas: Pizzas? { set get }
+	init(view: LaunchViewProtocol, network: NetworkManager)
 	
-	init(view: LaunchViewProtocol, networkManager: NetworkManager)
-	
-	func addButtonAction()
-	
-	func addCartAction()
+	func downloadStaff()
 	
 }
 
@@ -36,33 +32,17 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 	
 	var networkManager: NetworkManager?
 	
-	var pizzas: Pizzas?
-	
-	required init(view: LaunchViewProtocol, networkManager: NetworkManager) {
+	required init(view: LaunchViewProtocol, network: NetworkManager) {
 		
 		self.view = view
 		
-		self.networkManager = networkManager
-		
-		downloadPizzas()
+		self.networkManager = network
 		
 	}
 	
-	func addButtonAction() {
+	func downloadStaff() {
 		
-		print("Presenter add button action")
-		
-	}
-	
-	func addCartAction() {
-		
-		print("Presenter add cart action")
-		
-	}
-	
-	func downloadPizzas() {
-		
-		networkManager?.downloadPizzas(completion: { [weak self] (pizzas, error) in
+		networkManager?.downloadGoods(completion: { [weak self] (goods, error) in
 			
 			guard let ss = self else { return }
 			
@@ -74,13 +54,11 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 				
 			}
 			
-			if let pizzas = pizzas {
-				
-				ss.pizzas = pizzas
-				
-				ss.view?.reload()
-				
-			}
+			guard let goods = goods else { fatalError("No goods!") }
+			
+			GoodsList.shared.goods = goods
+			
+			ss.view?.moveToMenuController()
 			
 		})
 		

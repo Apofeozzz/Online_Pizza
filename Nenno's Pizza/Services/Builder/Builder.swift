@@ -9,25 +9,41 @@
 import UIKit
 
 protocol BuilderProtocol: class {
+	
+	static func launchScreen() -> LaunchViewController
     
-    static func launchScreen() -> LaunchViewController
+    static func menuScreen() -> MenuViewController
     
 }
 
 class Builder: BuilderProtocol {
+	
+	static func launchScreen() -> LaunchViewController {
+		
+		let launchVC = LaunchViewController()
+		
+		let networkManager = NetworkManager.shared
+		
+		let presenter = LaunchViewPresenter(view: launchVC, network: networkManager)
+		
+		launchVC.presenter = presenter
+		
+		return launchVC
+		
+	}
 
-    static func launchScreen() -> LaunchViewController {
+    static func menuScreen() -> MenuViewController {
         
-        let launchVC 		= LaunchViewController()
+        let menuVC 			= MenuViewController()
 		
 		let networkManager 	= NetworkManager.shared
         
-		let presenter 		= LaunchViewPresenter(view: launchVC,
+		let presenter 		= MenuViewPresenter(view: menuVC,
 											networkManager: networkManager)
         
-        launchVC.presenter 	= presenter
+        menuVC.presenter 	= presenter
         
-        return launchVC
+        return menuVC
         
     }
     

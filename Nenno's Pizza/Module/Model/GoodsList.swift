@@ -14,24 +14,4 @@ class GoodsList {
 	
 	var goods = [Good]()
 	
-	init() {
-		
-		NetworkManager.shared.downloadGoods { (goods, error) in
-			
-			if error != nil {
-				
-				print(error!.localizedDescription)
-				
-				return
-				
-			}
-			
-			if let goods = goods { self.goods = goods }
-			
-		}
-		
-	}
-	
-	
-	
 }

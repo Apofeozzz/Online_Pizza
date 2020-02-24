@@ -46,7 +46,7 @@ class PizzaPriceView: UIView {
 	
 	private func setupCartImageView() {
 		
-		let cartImage = UIImage(named: "ic_cart_button")
+		let cartImage = UIImage(named: "ic_cart_button")?.withTintColor(.white)
 		
 		cartImageView = UIImageView(image: cartImage)
 		
