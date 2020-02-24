@@ -6,4 +6,8 @@
 //  Copyright © 2020 DenisGrishchenko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class IngredientsView: UIView {
+	
+}
