@@ -8,27 +8,63 @@
 
 import Foundation
 
+// MARK: - VIEW PROTOCOL -
+
 protocol IngredientsViewProtocol: class {
 	
 }
 
+// MARK: - PRESENTER PROTOCOL -
+
 protocol IngredientsViewPresenterProtocol {
 	
-	init(view: IngredientsViewProtocol, networkManager: NetworkManager)
+	var ingredients: [Good] { set get }
+	
+	var pizza: Pizza? { get set }
+	
+	var basePrice: Double? { get set }
+	
+	init(view: IngredientsViewProtocol,
+		 networkManager: NetworkManager,
+		 pizza: Pizza?,
+		 basePrice: Double?,
+		 ingredients: [Good])
 	
 }
 
+// MARK: - PRESENTER -
+
 class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
+	
+	// MARK: - DATA SOURCE -
 	
 	weak var view: IngredientsViewProtocol?
 	
 	var networkManager: NetworkManager
 	
-	required init(view: IngredientsViewProtocol, networkManager: NetworkManager) {
+	var ingredients: [Good]
+	
+	var pizza: Pizza?
+	
+	var basePrice: Double?
+	
+	// MARK: - INIT -
+	
+	required init(view: IngredientsViewProtocol,
+				  networkManager: NetworkManager,
+				  pizza: Pizza?,
+				  basePrice: Double?,
+				  ingredients: [Good]) {
 		
-		self.view = view
+		self.view 			= view
 		
 		self.networkManager = networkManager
+		
+		self.pizza 			= pizza
+		
+		self.basePrice 		= basePrice
+		
+		self.ingredients	= ingredients
 		
 	}
 	

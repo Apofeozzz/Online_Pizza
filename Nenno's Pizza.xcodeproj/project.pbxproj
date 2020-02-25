@@ -32,6 +32,7 @@
 		929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE49F240481AD00258DD2 /* IngredientsView.swift */; };
 		929EE4A2240481B900258DD2 /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE4A1240481B900258DD2 /* IngredientsViewController.swift */; };
 		929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929EE4A5240481ED00258DD2 /* IngredientViewPresenter.swift */; };
+		92DB56842405AD4B0096CB6A /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB56832405AD4B0096CB6A /* IngredientsTableViewCell.swift */; };
 		92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		929EE49F240481AD00258DD2 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
 		929EE4A1240481B900258DD2 /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
 		929EE4A5240481ED00258DD2 /* IngredientViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewPresenter.swift; sourceTree = "<group>"; };
+		92DB56832405AD4B0096CB6A /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 		92FB94B92404458C002EB14E /* PizzaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				929EE49F240481AD00258DD2 /* IngredientsView.swift */,
+				92DB56832405AD4B0096CB6A /* IngredientsTableViewCell.swift */,
 				929EE4A1240481B900258DD2 /* IngredientsViewController.swift */,
 			);
 			path = View;
@@ -463,6 +466,7 @@
 				4BC206932403B83800F250F1 /* AppDelegate.swift in Sources */,
 				4BC206D22403BE4500F250F1 /* MenuViewPresenter.swift in Sources */,
 				92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */,
+				92DB56842405AD4B0096CB6A /* IngredientsTableViewCell.swift in Sources */,
 				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
 				9220D2C32404367400E66F1C /* MenuView.swift in Sources */,
 				929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */,

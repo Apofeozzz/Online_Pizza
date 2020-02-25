@@ -114,6 +114,14 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         ])
         
     }
+	
+	// MARK: - NAVIGATION -
+	
+	func navigateToNext(controller: UIViewController) {
+		
+		navigationController?.pushViewController(controller, animated: true)
+		
+	}
 
 }
 
@@ -147,7 +155,7 @@ extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		print(indexPath.row)
+		presenter.selectPizza(index: indexPath.row)
 		
 	}
     

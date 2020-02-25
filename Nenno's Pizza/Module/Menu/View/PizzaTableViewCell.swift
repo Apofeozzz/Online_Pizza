@@ -33,7 +33,7 @@ class PizzaTableViewCell: UITableViewCell {
 		
 		willSet {
 			
-			priceView.priceLabel.text = "$\(newValue)"
+			priceView.priceLabel.text = "$\(newValue)".formatPrice
 			
 		}
 		
@@ -164,7 +164,7 @@ class PizzaTableViewCell: UITableViewCell {
 		
 		pizzaNameLabel.font = UIFont.boldSystemFont(ofSize: 24)
 		
-		pizzaNameLabel.textColor = UIColor.rgb(red: 74, green: 74, blue: 74)
+		pizzaNameLabel.textColor = .primaryTextColor
 		
 		addSubview(pizzaNameLabel)
 		
@@ -236,7 +236,7 @@ class PizzaTableViewCell: UITableViewCell {
 			priceView.bottomAnchor		.constraint(equalTo: bottomAnchor, constant: -12),
 			priceView.trailingAnchor	.constraint(equalTo: trailingAnchor, constant: -12),
 			priceView.heightAnchor		.constraint(equalToConstant: 35),
-			priceView.widthAnchor		.constraint(equalToConstant: 80)
+			priceView.widthAnchor		.constraint(equalToConstant: 70)
 		
 		])
 		

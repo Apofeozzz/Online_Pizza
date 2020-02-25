@@ -52,9 +52,9 @@ class PizzaPriceView: UIView {
 		
 		cartImageView.translatesAutoresizingMaskIntoConstraints = false
 		
-		cartImageView.contentMode = .scaleAspectFit
+		cartImageView.contentMode 	= .scaleAspectFit
 		
-		cartImageView.tintColor = .white
+		cartImageView.tintColor 	= .white
 		
 		addSubview(cartImageView)
 		
@@ -66,9 +66,11 @@ class PizzaPriceView: UIView {
 		
 		priceLabel.translatesAutoresizingMaskIntoConstraints = false
 		
-		priceLabel.font = UIFont.boldSystemFont(ofSize: 16)
+		priceLabel.font 			= UIFont.boldSystemFont(ofSize: 16)
 		
-		priceLabel.textColor = .white
+		priceLabel.textColor 		= .white
+		
+		priceLabel.textAlignment 	= .right
 		
 		addSubview(priceLabel)
 		
@@ -82,8 +84,7 @@ class PizzaPriceView: UIView {
 		
 			priceLabel.topAnchor		.constraint(equalTo: topAnchor, constant: 3),
 			priceLabel.bottomAnchor		.constraint(equalTo: bottomAnchor, constant: -3),
-			priceLabel.trailingAnchor	.constraint(equalTo: trailingAnchor, constant: -3),
-			priceLabel.leadingAnchor	.constraint(equalTo: cartImageView.trailingAnchor, constant: 3)
+			priceLabel.trailingAnchor	.constraint(equalTo: trailingAnchor, constant: -7)
 			
 		])
 		
@@ -91,7 +92,7 @@ class PizzaPriceView: UIView {
 		
 			cartImageView.topAnchor		.constraint(equalTo: priceLabel.topAnchor),
 			cartImageView.bottomAnchor	.constraint(equalTo: priceLabel.bottomAnchor),
-			cartImageView.leadingAnchor	.constraint(equalTo: leadingAnchor, constant: 3)
+			cartImageView.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor)
 		
 		])
 		

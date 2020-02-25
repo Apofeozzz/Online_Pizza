@@ -14,7 +14,7 @@ protocol BuilderProtocol: class {
     
     static func menuScreen() -> MenuViewController
 	
-	static func ingredientsScreen() -> IngredientsViewController
+	static func ingredientsScreen(pizza: Pizza?, basePrice: Double?) -> IngredientsViewController
     
 }
 
@@ -49,19 +49,24 @@ class Builder: BuilderProtocol {
         
     }
 	
-	static func ingredientsScreen() -> IngredientsViewController {
+	static func ingredientsScreen(pizza: Pizza?, basePrice: Double?) -> IngredientsViewController {
 		
-		let ingredientsVC = IngredientsViewController()
+		let ingredientsVC 	= IngredientsViewController()
 		
-		let networkManager = NetworkManager.shared
+		let networkManager 	= NetworkManager.shared
 		
-		let presenter = IngredientsViewPresenter(view: ingredientsVC, networkManager: networkManager)
+		let goods 			= GoodsList.shared.goods
+		
+		let presenter = IngredientsViewPresenter(view: 				ingredientsVC,
+												 networkManager: 	networkManager,
+												 pizza: 			pizza,
+												 basePrice: 		basePrice,
+												 ingredients:		goods)
 		
 		ingredientsVC.presenter = presenter
 		
 		return ingredientsVC;
 		
 	}
-    
     
 }

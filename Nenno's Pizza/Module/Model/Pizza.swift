@@ -15,6 +15,20 @@ struct Pizza: Decodable {
     var ingredients:    [UInt]
     
     var imageUrl:       String?
+	
+	mutating func addIngredient(id: UInt) {
+		
+		ingredients.append(id)
+		
+	}
+	
+	mutating func removeIngredient(id: UInt) {
+		
+		guard let index = ingredients.firstIndex(of: id) else { return }
+		
+		ingredients.remove(at: index)
+		
+	}
     
 }
 

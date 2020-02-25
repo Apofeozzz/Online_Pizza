@@ -16,6 +16,8 @@ class IngredientsView: UIView {
 	
 	var pizzaImageView: 		UIImageView!
 	
+	var ingredientsLabel:		UILabel!
+	
 	var ingredientsTableView: 	UITableView!
 	
 	var addToCartButton:		UIButton!
@@ -43,6 +45,12 @@ class IngredientsView: UIView {
 		
 		setupPizzaImageView()
 		
+		setupIngredientLabel()
+		
+		setupIngredientsTableView()
+		
+		setupAddToCartButton()
+		
 		setupConstraints()
 		
 	}
@@ -53,9 +61,9 @@ class IngredientsView: UIView {
 		
 		backPizzaImageView.translatesAutoresizingMaskIntoConstraints = false
 		
-		backPizzaImageView.image = UIImage(named: "bg_wood")
+		backPizzaImageView.image 		= UIImage(named: "bg_wood")
 		
-		backPizzaImageView.contentMode = .scaleToFill
+		backPizzaImageView.contentMode 	= .scaleToFill
 		
 		addSubview(backPizzaImageView)
 		
@@ -67,11 +75,56 @@ class IngredientsView: UIView {
 		
 		pizzaImageView.translatesAutoresizingMaskIntoConstraints = false
 		
-		pizzaImageView.contentMode = .scaleAspectFit
+		pizzaImageView.contentMode 		= .scaleAspectFit
 		
-		pizzaImageView.clipsToBounds = true
+		pizzaImageView.clipsToBounds 	= true
 		
 		addSubview(pizzaImageView)
+		
+	}
+	
+	private func setupIngredientLabel() {
+		
+		ingredientsLabel = UILabel()
+		
+		ingredientsLabel.translatesAutoresizingMaskIntoConstraints = false
+		
+		ingredientsLabel.textColor 	= .primaryTextColor
+		
+		ingredientsLabel.font 		= UIFont.boldSystemFont(ofSize: 24)
+		
+		ingredientsLabel.text 		= "Ingredients"
+		
+		addSubview(ingredientsLabel)
+		
+	}
+	
+	private func setupIngredientsTableView() {
+		
+		ingredientsTableView = UITableView()
+		
+		ingredientsTableView.translatesAutoresizingMaskIntoConstraints = false
+		
+		ingredientsTableView.register(IngredientsTableViewCell.self,
+									  forCellReuseIdentifier: IngredientsTableViewCell.id)
+		
+		addSubview(ingredientsTableView)
+		
+	}
+	
+	private func setupAddToCartButton() {
+		
+		addToCartButton = UIButton(type: .system)
+		
+		addToCartButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		addToCartButton.setTitle("ADD TO CART", for: .normal)
+		
+		addToCartButton.setTitleColor(.white, for: .normal)
+		
+		addToCartButton.backgroundColor = UIColor.rgb(red: 255, green: 205, blue: 43)
+		
+		addSubview(addToCartButton)
 		
 	}
 	
@@ -90,8 +143,35 @@ class IngredientsView: UIView {
 		
 		NSLayoutConstraint.activate([
 			
-			pizzaImageView.topAnchor.constraint(equalTo: backPizzaImageView.topAnchor, constant: 10),
-			pizzaImageView.bottomAnchor.constraint(equalTo: backPizzaImageView.bottomAnchor, constant: -10)
+			pizzaImageView.topAnchor		.constraint(equalTo: backPizzaImageView.topAnchor, constant: 10),
+			pizzaImageView.bottomAnchor		.constraint(equalTo: backPizzaImageView.bottomAnchor, constant: -10),
+			pizzaImageView.leadingAnchor	.constraint(equalTo: backPizzaImageView.leadingAnchor),
+			pizzaImageView.trailingAnchor	.constraint(equalTo: backPizzaImageView.trailingAnchor)
+		
+		])
+		
+		NSLayoutConstraint.activate([
+		
+			ingredientsLabel.topAnchor		.constraint(equalTo: backPizzaImageView.bottomAnchor, constant: 24),
+			ingredientsLabel.leadingAnchor	.constraint(equalTo: leadingAnchor, constant: 12)
+		
+		])
+		
+		NSLayoutConstraint.activate([
+		
+			ingredientsTableView.topAnchor		.constraint(equalTo: ingredientsLabel.bottomAnchor),
+			ingredientsTableView.leadingAnchor	.constraint(equalTo: leadingAnchor),
+			ingredientsTableView.trailingAnchor	.constraint(equalTo: trailingAnchor),
+			ingredientsTableView.bottomAnchor	.constraint(equalTo: addToCartButton.topAnchor)
+			
+		])
+		
+		NSLayoutConstraint.activate([
+		
+			addToCartButton.bottomAnchor	.constraint(equalTo: bottomAnchor),
+			addToCartButton.leadingAnchor	.constraint(equalTo: leadingAnchor),
+			addToCartButton.trailingAnchor	.constraint(equalTo: trailingAnchor),
+			addToCartButton.heightAnchor	.constraint(equalToConstant: 50)
 		
 		])
 		

@@ -12,6 +12,8 @@ protocol MenuViewProtocol: class {
 	
 	func reload()
 	
+	func navigateToNext(controller: UIViewController)
+	
 }
 
 protocol MenuViewPresenterProtocol: class {
@@ -27,6 +29,8 @@ protocol MenuViewPresenterProtocol: class {
 	func addButtonAction()
 	
 	func addCartAction()
+	
+	func selectPizza(index: Int)
 	
 }
 
@@ -83,6 +87,19 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 			}
 			
 		})
+		
+	}
+	
+	func selectPizza(index: Int) {
+		
+		let basePrice 	= pizzas?.basePrice
+		
+		let pizza 		= pizzas?.pizzas[index]
+		
+		let vc 			= Builder.ingredientsScreen(pizza: pizza,
+													basePrice: basePrice)
+		
+		view?.navigateToNext(controller: vc)
 		
 	}
 	

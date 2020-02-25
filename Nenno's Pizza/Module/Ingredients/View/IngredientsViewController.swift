@@ -27,11 +27,23 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 	}
 	
+	// MARK: - ACTION -
+	
+	@objc private func backButtonAction() {
+		
+		navigationController?.popViewController(animated: true)
+		
+	}
+	
 	// MARK: - SETUP VIEW -
     
     private func setupView() {
+		
+		navigationController?.navigationBar.topItem?.title = " "
         
         view.backgroundColor = .white
+		
+		title = presenter?.pizza?.name.uppercased()
         
         setupMainView()
         
@@ -42,10 +54,48 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
     private func setupMainView() {
         
         mainView = IngredientsView()
+		
+		if let urlString = presenter?.pizza?.imageUrl, let url = URL(string: urlString) {
+		
+			mainView.pizzaImageView.kf.setImage(with: url)
+			
+		}
+		
+		mainView.ingredientsTableView.dataSource 	= self
+		
+		mainView.ingredientsTableView.delegate 		= self
+		
+		mainView.addToCartButton.setTitle("ADD TO CART ($\(countPrice()))", for: .normal)
         
         view.addSubview(mainView)
         
     }
+	
+	private func countPrice() -> String {
+		
+		guard var price = presenter?.basePrice else { return "" }
+		
+		if let pizza = presenter?.pizza, let goods = presenter?.ingredients {
+			
+			for good in pizza.ingredients {
+				
+				for each in goods {
+					
+					if each.id == good {
+						
+						price += each.price
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		return "\(price)".formatPrice
+		
+	}
     
     // MARK: - SETUP CONSTRAINTS -
     
@@ -61,5 +111,75 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
         ])
         
     }
+	
+}
+
+// MARK: - UITABLEVIEW -
+
+extension IngredientsViewController: UITableViewDataSource, UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		return presenter?.ingredients.count ?? 0
+		
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: IngredientsTableViewCell.id) as! IngredientsTableViewCell
+		
+		if let presenter = presenter, let pizza = presenter.pizza {
+			
+			let ingredient = presenter.ingredients[indexPath.row]
+			
+			cell.ingredient = ingredient
+			
+			if pizza.ingredients.contains(ingredient.id) {
+				
+				cell.wasSelected = true
+				
+			}
+			
+		}
+		
+		return cell
+		
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		tableView.deselectRow(at: indexPath, animated: true)
+		
+		let cell = tableView.cellForRow(at: indexPath) as! IngredientsTableViewCell
+		
+		if cell.wasSelected {
+			
+			if let good = presenter?.ingredients[indexPath.row] {
+			
+				presenter?.pizza?.removeIngredient(id: good.id)
+				
+			}
+			
+			cell.wasSelected = false
+			
+		}
+		
+		else {
+			
+			if let good = presenter?.ingredients[indexPath.row] {
+			
+				presenter?.pizza?.addIngredient(id: good.id)
+				
+			}
+			
+			cell.wasSelected = true
+			
+		}
+		
+		mainView.addToCartButton.setTitle("ADD TO CART ($\(countPrice()))", for: .normal)
+		
+		tableView.reloadData()
+		
+	}
 	
 }
