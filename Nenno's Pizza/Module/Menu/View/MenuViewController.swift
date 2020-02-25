@@ -69,6 +69,8 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonAction))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_cart_navbar"), style: .plain, target: self, action: #selector(addCartButtonAction))
+		
+		navigationController?.setNavigationBarHidden(false, animated: false)
         
     }
     

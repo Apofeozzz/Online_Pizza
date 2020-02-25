@@ -13,6 +13,8 @@ protocol BuilderProtocol: class {
 	static func launchScreen() -> LaunchViewController
     
     static func menuScreen() -> MenuViewController
+	
+	static func ingredientsScreen() -> IngredientsViewController
     
 }
 
@@ -46,6 +48,20 @@ class Builder: BuilderProtocol {
         return menuVC
         
     }
+	
+	static func ingredientsScreen() -> IngredientsViewController {
+		
+		let ingredientsVC = IngredientsViewController()
+		
+		let networkManager = NetworkManager.shared
+		
+		let presenter = IngredientsViewPresenter(view: ingredientsVC, networkManager: networkManager)
+		
+		ingredientsVC.presenter = presenter
+		
+		return ingredientsVC;
+		
+	}
     
     
 }

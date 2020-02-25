@@ -8,7 +8,11 @@
 
 import UIKit
 
-class IngredientsViewController: UIViewController {
+class IngredientsViewController: UIViewController, IngredientsViewProtocol {
+	
+	// MARK: - PRESENTER -
+	
+	var presenter: IngredientsViewPresenterProtocol?
 	
 	// MARK: - UIVIEW -
 	

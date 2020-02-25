@@ -7,3 +7,29 @@
 //
 
 import Foundation
+
+protocol IngredientsViewProtocol: class {
+	
+}
+
+protocol IngredientsViewPresenterProtocol {
+	
+	init(view: IngredientsViewProtocol, networkManager: NetworkManager)
+	
+}
+
+class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
+	
+	weak var view: IngredientsViewProtocol?
+	
+	var networkManager: NetworkManager
+	
+	required init(view: IngredientsViewProtocol, networkManager: NetworkManager) {
+		
+		self.view = view
+		
+		self.networkManager = networkManager
+		
+	}
+	
+}
