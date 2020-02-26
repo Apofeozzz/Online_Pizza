@@ -16,6 +16,8 @@ struct Pizza: Decodable {
     
     var imageUrl:       String?
 	
+	var totalPrice:		Double?
+	
 	mutating func addIngredient(id: UInt) {
 		
 		ingredients.append(id)

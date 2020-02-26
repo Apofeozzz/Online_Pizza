@@ -26,6 +26,13 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         setupView()
         
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		setupNavigationBar()
+		
+	}
     
     // MARK: - NAV BAR ACTIONS -
     
@@ -79,8 +86,6 @@ class MenuViewController: UIViewController, MenuViewProtocol {
     private func setupView() {
         
         view.backgroundColor = .white
-        
-        setupNavigationBar()
         
         setupMainView()
         

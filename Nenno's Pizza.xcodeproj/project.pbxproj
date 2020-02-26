@@ -17,6 +17,7 @@
 		4BC206B82403B83C00F250F1 /* Nenno_s_PizzaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206B72403B83C00F250F1 /* Nenno_s_PizzaUITests.swift */; };
 		4BC206CB2403B98700F250F1 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206CA2403B98700F250F1 /* Builder.swift */; };
 		4BC206D22403BE4500F250F1 /* MenuViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206D12403BE4500F250F1 /* MenuViewPresenter.swift */; };
+		4BF1602324065C80001B709A /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1602224065C80001B709A /* Cart.swift */; };
 		9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E1240459B700B4C40B /* GoodsList.swift */; };
 		9216F6E524045F9D00B4C40B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9216F6E424045F9D00B4C40B /* Kingfisher */; };
 		9216F6E7240465C600B4C40B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E6240465C600B4C40B /* Extensions.swift */; };
@@ -70,6 +71,7 @@
 		4BC206B92403B83C00F250F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BC206CA2403B98700F250F1 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		4BC206D12403BE4500F250F1 /* MenuViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewPresenter.swift; sourceTree = "<group>"; };
+		4BF1602224065C80001B709A /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		9216F6E1240459B700B4C40B /* GoodsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsList.swift; sourceTree = "<group>"; };
 		9216F6E6240465C600B4C40B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9216F6E82404669E00B4C40B /* PizzaPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaPriceView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				9216F6E1240459B700B4C40B /* GoodsList.swift */,
 				9220D2C924043ED000E66F1C /* Drink.swift */,
 				9220D2CB240441AD00E66F1C /* Pizza.swift */,
+				4BF1602224065C80001B709A /* Cart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */,
 				92DB56842405AD4B0096CB6A /* IngredientsTableViewCell.swift in Sources */,
 				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
+				4BF1602324065C80001B709A /* Cart.swift in Sources */,
 				9220D2C32404367400E66F1C /* MenuView.swift in Sources */,
 				929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */,
 				9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */,

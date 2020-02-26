@@ -30,6 +30,8 @@ protocol IngredientsViewPresenterProtocol {
 		 basePrice: Double?,
 		 ingredients: [Good])
 	
+	func countPrice() -> String
+	
 }
 
 // MARK: - PRESENTER -
@@ -65,6 +67,30 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 		self.basePrice 		= basePrice
 		
 		self.ingredients	= ingredients
+		
+	}
+	
+	// MARK: - ACTIONS -
+	
+	func countPrice() -> String {
+		
+		guard var price = basePrice, let pizza = pizza else { return "" }
+		
+		for good in pizza.ingredients {
+			
+			for each in ingredients {
+				
+				if each.id == good {
+					
+					price += each.price
+					
+				}
+				
+			}
+			
+		}
+		
+		return "\(price)".formatPrice
 		
 	}
 	

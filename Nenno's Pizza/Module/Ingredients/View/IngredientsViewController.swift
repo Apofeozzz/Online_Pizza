@@ -65,37 +65,11 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 		mainView.ingredientsTableView.delegate 		= self
 		
-		mainView.addToCartButton.setTitle("ADD TO CART ($\(countPrice()))", for: .normal)
+		mainView.setupCartButtonTitle(price: presenter?.countPrice() ?? "")
         
         view.addSubview(mainView)
         
     }
-	
-	private func countPrice() -> String {
-		
-		guard var price = presenter?.basePrice else { return "" }
-		
-		if let pizza = presenter?.pizza, let goods = presenter?.ingredients {
-			
-			for good in pizza.ingredients {
-				
-				for each in goods {
-					
-					if each.id == good {
-						
-						price += each.price
-						
-					}
-					
-				}
-				
-			}
-			
-		}
-		
-		return "\(price)".formatPrice
-		
-	}
     
     // MARK: - SETUP CONSTRAINTS -
     
@@ -176,7 +150,7 @@ extension IngredientsViewController: UITableViewDataSource, UITableViewDelegate 
 			
 		}
 		
-		mainView.addToCartButton.setTitle("ADD TO CART ($\(countPrice()))", for: .normal)
+		mainView.setupCartButtonTitle(price: presenter?.countPrice() ?? "")
 		
 		tableView.reloadData()
 		

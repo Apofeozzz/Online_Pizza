@@ -118,13 +118,19 @@ class IngredientsView: UIView {
 		
 		addToCartButton.translatesAutoresizingMaskIntoConstraints = false
 		
-		addToCartButton.setTitle("ADD TO CART", for: .normal)
-		
 		addToCartButton.setTitleColor(.white, for: .normal)
+		
+		addToCartButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
 		
 		addToCartButton.backgroundColor = UIColor.rgb(red: 255, green: 205, blue: 43)
 		
 		addSubview(addToCartButton)
+		
+	}
+	
+	func setupCartButtonTitle(price: String) {
+		
+		addToCartButton.setTitle("ADD TO CART ($\(price))", for: .normal)
 		
 	}
 	
