@@ -16,6 +16,8 @@ protocol CartViewProtocol: class {
 	
 	var mainView: CartView! { get set }
 	
+	func reloadTableView()
+	
 	func navigateTo(controller: UIViewController)
 	
 }
@@ -33,6 +35,8 @@ protocol CartViewPresenterProtocol {
 	func setupSubscriptions()
 	
 	func countTotal() -> Double
+	
+	func deleteAction(index: Int)
 	
 }
 
@@ -88,9 +92,19 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	private func checkoutButtonAction() {
 		
+		if cart.pizzas.isEmpty { return }
+		
 		let checkoutVC = Builder.checkoutScreen()
 		
 		view?.navigateTo(controller: checkoutVC)
+		
+	}
+	
+	func deleteAction(index: Int) {
+		 
+		cart.pizzas.remove(at: index)
+		
+		view?.reloadTableView()
 		
 	}
 	

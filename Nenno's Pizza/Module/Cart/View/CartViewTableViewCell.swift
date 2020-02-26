@@ -24,6 +24,8 @@ class CartViewTableViewCell: UITableViewCell {
 	
 	var separatorView: 	UIView!
 	
+	var delete: () -> Void = {}
+	
 	// MARK: - INIT -
 	
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -35,6 +37,12 @@ class CartViewTableViewCell: UITableViewCell {
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	@objc private func deleteButtonAction() {
+		
+		delete()
+		
 	}
 	
 	// MARK: - SETUP VIEW -
@@ -60,6 +68,8 @@ class CartViewTableViewCell: UITableViewCell {
 		deleteButton = UIButton(type: .system)
 		
 		deleteButton.translatesAutoresizingMaskIntoConstraints = false
+		
+		deleteButton.addTarget(self, action: #selector(deleteButtonAction), for: .touchUpInside)
 		
 		addSubview(deleteButton)
 		

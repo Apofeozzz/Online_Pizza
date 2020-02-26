@@ -29,11 +29,46 @@ class CartViewController: UIViewController, CartViewProtocol {
 		
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		checkTheOrder()
+		
+	}
+	
 	// MARK: - NAVIGATION -
 	
 	func navigateTo(controller: UIViewController) {
 		
 		navigationController?.pushViewController(controller, animated: true)
+		
+	}
+	
+	// MARK: - ACTION -
+	
+	func reloadTableView() {
+		
+		DispatchQueue.main.async { [weak self] in
+			
+			guard let ss = self else { return }
+			
+			ss.mainView.cartTableView.reloadData()
+			
+			ss.checkTheOrder()
+			
+		}
+		
+	}
+	
+	func checkTheOrder() {
+		
+		if presenter.cart.pizzas.isEmpty {
+			
+			mainView.checkoutButton.backgroundColor = .lightGray
+			
+			mainView.checkoutButton.isUserInteractionEnabled = false
+			
+		}
 		
 	}
 	
@@ -106,6 +141,14 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 			cell.itemNameLabel.text = pizza.name
 			
 			cell.priceLabel.text 	= "$\(pizza.totalPrice ?? 0)".formatPrice
+			
+			cell.delete = {[weak self] in
+				
+				guard  let ss = self else { return }
+				
+				ss.presenter.deleteAction(index: indexPath.row)
+				
+			}
 			
 			return cell
 			
