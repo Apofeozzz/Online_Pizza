@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Cart {
+class Cart {
+	
+	static let shared = Cart()
 	
 	var pizzas = [Pizza]()
 	

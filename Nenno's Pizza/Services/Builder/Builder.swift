@@ -61,7 +61,8 @@ class Builder: BuilderProtocol {
 												 networkManager: 	networkManager,
 												 pizza: 			pizza,
 												 basePrice: 		basePrice,
-												 ingredients:		goods)
+												 ingredients:		goods,
+												 cart: 				Cart.shared)
 		
 		ingredientsVC.presenter = presenter
 		

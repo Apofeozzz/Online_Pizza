@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 // MARK: - VIEW PROTOCOL -
 
 protocol IngredientsViewProtocol: class {
+	
+	var mainView: IngredientsView! { set get }
 	
 }
 
@@ -24,13 +28,18 @@ protocol IngredientsViewPresenterProtocol {
 	
 	var basePrice: Double? { get set }
 	
+	var cart: Cart? { get set }
+	
 	init(view: IngredientsViewProtocol,
 		 networkManager: NetworkManager,
 		 pizza: Pizza?,
 		 basePrice: Double?,
-		 ingredients: [Good])
+		 ingredients: [Good],
+		 cart: Cart?)
 	
-	func countPrice() -> String
+	func setupSubscriptions()
+	
+	func countPrice() -> Double
 	
 }
 
@@ -50,13 +59,18 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	
 	var basePrice: Double?
 	
+	var cart: Cart?
+	
+	let disposeBag = DisposeBag()
+	
 	// MARK: - INIT -
 	
 	required init(view: IngredientsViewProtocol,
 				  networkManager: NetworkManager,
 				  pizza: Pizza?,
 				  basePrice: Double?,
-				  ingredients: [Good]) {
+				  ingredients: [Good],
+				  cart: Cart?) {
 		
 		self.view 			= view
 		
@@ -68,13 +82,31 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 		
 		self.ingredients	= ingredients
 		
+		self.cart			= cart
+		
+	}
+	
+	func setupSubscriptions() {
+		
+		view?.mainView.addToCartButton.rx.controlEvent(.touchUpInside).subscribe(onNext: {[weak self] (_) in
+			
+			print("Add to cart button pressed!")
+			
+			guard let ss = self else { return }
+			
+			if ss.pizza != nil { ss.pizza!.totalPrice = ss.countPrice() }
+			
+			ss.cart?.pizzas.append(ss.pizza!)
+			
+		}).disposed(by: disposeBag)
+		
 	}
 	
 	// MARK: - ACTIONS -
 	
-	func countPrice() -> String {
+	func countPrice() -> Double {
 		
-		guard var price = basePrice, let pizza = pizza else { return "" }
+		guard var price = basePrice, let pizza = pizza else { return 0 }
 		
 		for good in pizza.ingredients {
 			
@@ -90,7 +122,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 			
 		}
 		
-		return "\(price)".formatPrice
+		return price
 		
 	}
 	

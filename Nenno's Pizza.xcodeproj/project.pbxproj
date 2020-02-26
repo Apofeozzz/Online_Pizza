@@ -18,6 +18,8 @@
 		4BC206CB2403B98700F250F1 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206CA2403B98700F250F1 /* Builder.swift */; };
 		4BC206D22403BE4500F250F1 /* MenuViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206D12403BE4500F250F1 /* MenuViewPresenter.swift */; };
 		4BF1602324065C80001B709A /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1602224065C80001B709A /* Cart.swift */; };
+		4BF1602624065E58001B709A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4BF1602524065E58001B709A /* RxSwift */; };
+		4BF1602824065E58001B709A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4BF1602724065E58001B709A /* RxCocoa */; };
 		9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E1240459B700B4C40B /* GoodsList.swift */; };
 		9216F6E524045F9D00B4C40B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 9216F6E424045F9D00B4C40B /* Kingfisher */; };
 		9216F6E7240465C600B4C40B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9216F6E6240465C600B4C40B /* Extensions.swift */; };
@@ -95,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF1602824065E58001B709A /* RxCocoa in Frameworks */,
+				4BF1602624065E58001B709A /* RxSwift in Frameworks */,
 				9216F6E524045F9D00B4C40B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +345,8 @@
 			name = "Nenno's Pizza";
 			packageProductDependencies = (
 				9216F6E424045F9D00B4C40B /* Kingfisher */,
+				4BF1602524065E58001B709A /* RxSwift */,
+				4BF1602724065E58001B709A /* RxCocoa */,
 			);
 			productName = "Nenno's Pizza";
 			productReference = 4BC2068F2403B83800F250F1 /* Nenno's Pizza.app */;
@@ -416,6 +422,7 @@
 			mainGroup = 4BC206862403B83800F250F1;
 			packageReferences = (
 				9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4BF1602424065E58001B709A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 4BC206902403B83800F250F1 /* Products */;
 			projectDirPath = "";
@@ -798,6 +805,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4BF1602424065E58001B709A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -809,6 +824,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4BF1602524065E58001B709A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BF1602424065E58001B709A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		4BF1602724065E58001B709A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BF1602424065E58001B709A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		9216F6E424045F9D00B4C40B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9216F6E324045F9D00B4C40B /* XCRemoteSwiftPackageReference "Kingfisher" */;

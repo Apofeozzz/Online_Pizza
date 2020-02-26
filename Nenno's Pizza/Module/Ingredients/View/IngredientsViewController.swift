@@ -25,6 +25,8 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 		setupView()
 		
+		presenter?.setupSubscriptions()
+		
 	}
 	
 	// MARK: - ACTION -
@@ -65,7 +67,7 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 		mainView.ingredientsTableView.delegate 		= self
 		
-		mainView.setupCartButtonTitle(price: presenter?.countPrice() ?? "")
+		mainView.setupCartButtonTitle(price: "\(presenter?.countPrice() ?? 0)".formatPrice)
         
         view.addSubview(mainView)
         
@@ -150,7 +152,7 @@ extension IngredientsViewController: UITableViewDataSource, UITableViewDelegate 
 			
 		}
 		
-		mainView.setupCartButtonTitle(price: presenter?.countPrice() ?? "")
+		mainView.setupCartButtonTitle(price: "\(presenter?.countPrice() ?? 0)".formatPrice)
 		
 		tableView.reloadData()
 		
