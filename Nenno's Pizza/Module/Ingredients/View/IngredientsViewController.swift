@@ -37,6 +37,34 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 	}
 	
+	func addedToCartAction() {
+		
+		navigationController?.setNavigationBarHidden(true, animated: true)
+		
+		mainView.whiteBackground.isHidden = false
+		
+		mainView.addedToCartLabelTopConstraint.constant = 0
+		
+		UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { [weak self] in
+			
+			guard let ss = self else { return }
+			
+			ss.view.layoutIfNeeded()
+			
+		}) { (_) in
+			
+			Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] (_) in
+				
+				guard let ss = self else { return }
+				
+				ss.navigationController?.popViewController(animated: true)
+				
+			}
+			
+		}
+		
+	}
+	
 	// MARK: - SETUP VIEW -
     
     private func setupView() {

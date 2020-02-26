@@ -16,6 +16,8 @@ protocol IngredientsViewProtocol: class {
 	
 	var mainView: IngredientsView! { set get }
 	
+	func addedToCartAction()
+	
 }
 
 // MARK: - PRESENTER PROTOCOL -
@@ -97,6 +99,8 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 			if ss.pizza != nil { ss.pizza!.totalPrice = ss.countPrice() }
 			
 			ss.cart?.pizzas.append(ss.pizza!)
+			
+			ss.view?.addedToCartAction()
 			
 		}).disposed(by: disposeBag)
 		

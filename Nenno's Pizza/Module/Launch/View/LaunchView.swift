@@ -46,7 +46,7 @@ class LaunchView: UIView {
 		
 		appNameLabel.translatesAutoresizingMaskIntoConstraints = false
 		
-		appNameLabel.font 		= UIFont.boldSystemFont(ofSize: 24)
+		appNameLabel.font 		= UIFont.systemFont(ofSize: 24, weight: .heavy)
 		
 		appNameLabel.textColor 	= .naviRed
 		

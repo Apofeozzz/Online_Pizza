@@ -22,6 +22,14 @@ class IngredientsView: UIView {
 	
 	var addToCartButton:		UIButton!
 	
+	var whiteBackground:		UIView!
+	
+	var addedToCartLabel:		UILabel!
+	
+	// MARK: - CONSTRAINTS -
+	
+	var addedToCartLabelTopConstraint: NSLayoutConstraint!
+	
 	// MARK: - INIT -
 	
 	init() {
@@ -50,6 +58,10 @@ class IngredientsView: UIView {
 		setupIngredientsTableView()
 		
 		setupAddToCartButton()
+		
+		setupWhiteBackground()
+		
+		setupAddedToCartLabel()
 		
 		setupConstraints()
 		
@@ -134,6 +146,40 @@ class IngredientsView: UIView {
 		
 	}
 	
+	private func setupWhiteBackground() {
+		
+		whiteBackground = UIView()
+		
+		whiteBackground.translatesAutoresizingMaskIntoConstraints = false
+		
+		whiteBackground.backgroundColor = .white
+		
+		whiteBackground.isHidden = true
+		
+		addSubview(whiteBackground)
+		
+	}
+	
+	private func setupAddedToCartLabel() {
+		
+		addedToCartLabel = UILabel()
+		
+		addedToCartLabel.translatesAutoresizingMaskIntoConstraints = false
+		
+		addedToCartLabel.text = "ADDED TO CART"
+		
+		addedToCartLabel.textColor = .white
+		
+		addedToCartLabel.textAlignment = .center
+		
+		addedToCartLabel.font = .boldSystemFont(ofSize: 12)
+		
+		addedToCartLabel.backgroundColor = .naviRed
+		
+		addSubview(addedToCartLabel)
+		
+	}
+	
 	// MARK: - SETUP CONSTRAINTS -
 	
 	private func setupConstraints() {
@@ -178,6 +224,26 @@ class IngredientsView: UIView {
 			addToCartButton.leadingAnchor	.constraint(equalTo: leadingAnchor),
 			addToCartButton.trailingAnchor	.constraint(equalTo: trailingAnchor),
 			addToCartButton.heightAnchor	.constraint(equalToConstant: 50)
+		
+		])
+		
+		NSLayoutConstraint.activate([
+		
+			whiteBackground.topAnchor		.constraint(equalTo: topAnchor),
+			whiteBackground.leadingAnchor	.constraint(equalTo: leadingAnchor),
+			whiteBackground.trailingAnchor	.constraint(equalTo: trailingAnchor),
+			whiteBackground.bottomAnchor	.constraint(equalTo: bottomAnchor)
+		
+		])
+		
+		addedToCartLabelTopConstraint = addedToCartLabel.topAnchor.constraint(equalTo: topAnchor, constant: -150)
+		
+		NSLayoutConstraint.activate([
+		
+			addedToCartLabel.leadingAnchor	.constraint(equalTo: leadingAnchor),
+			addedToCartLabel.trailingAnchor	.constraint(equalTo: trailingAnchor),
+			addedToCartLabel.heightAnchor	.constraint(equalToConstant: 40),
+			addedToCartLabelTopConstraint
 		
 		])
 		
