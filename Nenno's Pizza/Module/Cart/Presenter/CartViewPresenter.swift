@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 // MARK: - VIEW PROTOCOL -
 
 protocol CartViewProtocol: class {
+	
+	var mainView: CartView! { get set }
+	
+	func navigateTo(controller: UIViewController)
 	
 }
 
@@ -23,6 +29,8 @@ protocol CartViewPresenterProtocol {
 	var cart: Cart { get set }
 	
 	init(view: CartViewProtocol, cart: Cart, networkManager: NetworkManager)
+	
+	func setupSubscriptions()
 	
 	func countTotal() -> Double
 	
@@ -38,6 +46,8 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	var cart: Cart
 	
+	let disposeBag = DisposeBag()
+	
 	// MARK: - INIT -
 	
 	required init(view: CartViewProtocol, cart: Cart, networkManager: NetworkManager) {
@@ -50,6 +60,18 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	// MARK: - ACTIONS -
 	
+	func setupSubscriptions() {
+		
+		view?.mainView.checkoutButton.rx.controlEvent(.touchUpInside).subscribe(onNext: {[weak self] (_) in
+			
+			guard let ss = self else { return }
+			
+			ss.checkoutButtonAction()
+			
+		}).disposed(by: disposeBag)
+		
+	}
+	
 	func countTotal() -> Double {
 		
 		var total: Double = 0
@@ -61,6 +83,14 @@ class CartViewPresenter: CartViewPresenterProtocol {
 		}
 		
 		return total
+		
+	}
+	
+	private func checkoutButtonAction() {
+		
+		let checkoutVC = Builder.checkoutScreen()
+		
+		view?.navigateTo(controller: checkoutVC)
 		
 	}
 	

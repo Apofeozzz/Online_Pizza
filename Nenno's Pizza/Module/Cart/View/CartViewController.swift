@@ -25,6 +25,16 @@ class CartViewController: UIViewController, CartViewProtocol {
 		
 		setupView()
 		
+		presenter.setupSubscriptions()
+		
+	}
+	
+	// MARK: - NAVIGATION -
+	
+	func navigateTo(controller: UIViewController) {
+		
+		navigationController?.pushViewController(controller, animated: true)
+		
 	}
 	
 	// MARK: - SETUP VIEW -

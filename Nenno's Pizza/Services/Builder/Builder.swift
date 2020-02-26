@@ -18,6 +18,8 @@ protocol BuilderProtocol: class {
     
 	static func cartScreen() -> CartViewController
 	
+	static func checkoutScreen() -> CheckoutViewController
+	
 }
 
 class Builder: BuilderProtocol {
@@ -85,6 +87,20 @@ class Builder: BuilderProtocol {
 		cartVC.presenter = presenter
 		
 		return cartVC
+		
+	}
+	
+	static func checkoutScreen() -> CheckoutViewController {
+		
+		let cart = Cart.shared
+		
+		let checkoutVC = CheckoutViewController()
+		
+		let presenter = CheckoutViewPresenter(view: checkoutVC, cart: cart)
+		
+		checkoutVC.presenter = presenter
+		
+		return checkoutVC
 		
 	}
 	
