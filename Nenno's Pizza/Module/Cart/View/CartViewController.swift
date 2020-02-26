@@ -1,0 +1,114 @@
+//
+//  CartViewController.swift
+//  Nenno's Pizza
+//
+//  Created by Denis Grishchenko on 26.02.2020.
+//  Copyright © 2020 DenisGrishchenko. All rights reserved.
+//
+
+import UIKit
+
+class CartViewController: UIViewController, CartViewProtocol {
+	
+	// MARK: - PRESENTER -
+	
+	var presenter: CartViewPresenterProtocol!
+	
+	// MARK: - UI VIEW -
+	
+	var mainView: CartView!
+	
+	// MARK: - LIFE CYCLE -
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		setupView()
+		
+	}
+	
+	// MARK: - SETUP VIEW -
+	
+	private func setupNavigationBar() {
+		
+		navigationController?.navigationBar.topItem?.title = " "
+		
+		title = "CART"
+		
+	}
+    
+    private func setupView() {
+		
+		setupNavigationBar()
+        
+        view.backgroundColor = .white
+        
+        setupMainView()
+        
+        setupConstraints()
+        
+    }
+	
+	private func setupMainView() {
+        
+        mainView = CartView()
+        
+		mainView.cartTableView.dataSource = self
+		
+		mainView.cartTableView.delegate = self
+		
+        view.addSubview(mainView)
+        
+    }
+	
+	// MARK: - SETUP CONSTRAINTS -
+    
+    private func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+        
+            mainView.topAnchor      .constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mainView.leadingAnchor  .constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            mainView.trailingAnchor .constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            mainView.bottomAnchor   .constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        
+        ])
+        
+    }
+}
+
+extension CartViewController: UITableViewDataSource, UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		
+		return presenter.cart.pizzas.count + 1
+		
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		if indexPath.row < presenter.cart.pizzas.count {
+			
+			let cell = tableView.dequeueReusableCell(withIdentifier: CartViewTableViewCell.id) as! CartViewTableViewCell
+			
+			let pizza = presenter.cart.pizzas[indexPath.row]
+			
+			cell.itemNameLabel.text = pizza.name
+			
+			cell.priceLabel.text 	= "$\(pizza.totalPrice ?? 0)".formatPrice
+			
+			return cell
+			
+		} else {
+			
+			let cell = CartTotalTableViewCell()
+			
+			cell.priceLabel.text = "$\(presenter.countTotal())".formatPrice
+			
+			return cell
+			
+		}
+		
+	}
+	
+}

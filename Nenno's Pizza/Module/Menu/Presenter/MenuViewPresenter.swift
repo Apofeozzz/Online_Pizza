@@ -28,7 +28,7 @@ protocol MenuViewPresenterProtocol: class {
 	
 	func addButtonAction()
 	
-	func addCartAction()
+	func cartAction()
 	
 	func selectPizza(index: Int)
 	
@@ -58,9 +58,11 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 		
 	}
 	
-	func addCartAction() {
+	func cartAction() {
 		
-		print("Presenter add cart action")
+		let cartVC = Builder.cartScreen()
+		
+		view?.navigateToNext(controller: cartVC)
 		
 	}
 	

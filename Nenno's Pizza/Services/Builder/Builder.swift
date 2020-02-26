@@ -16,6 +16,8 @@ protocol BuilderProtocol: class {
 	
 	static func ingredientsScreen(pizza: Pizza?, basePrice: Double?) -> IngredientsViewController
     
+	static func cartScreen() -> CartViewController
+	
 }
 
 class Builder: BuilderProtocol {
@@ -70,4 +72,20 @@ class Builder: BuilderProtocol {
 		
 	}
     
+	static func cartScreen() -> CartViewController {
+		
+		let cart 			= Cart.shared
+		
+		let cartVC 			= CartViewController()
+		
+		let networkManager 	= NetworkManager.shared
+		
+		let presenter = CartViewPresenter(view: cartVC, cart: cart, networkManager: networkManager)
+		
+		cartVC.presenter = presenter
+		
+		return cartVC
+		
+	}
+	
 }

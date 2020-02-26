@@ -29,6 +29,11 @@
 		9220D2C824043D5300E66F1C /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C724043D5300E66F1C /* Good.swift */; };
 		9220D2CA24043ED000E66F1C /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C924043ED000E66F1C /* Drink.swift */; };
 		9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2CB240441AD00E66F1C /* Pizza.swift */; };
+		926BDE332406E7F900DC48E1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE322406E7F900DC48E1 /* CartView.swift */; };
+		926BDE372406E82200DC48E1 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE362406E82200DC48E1 /* CartViewController.swift */; };
+		926BDE392406E82F00DC48E1 /* CartViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE382406E82F00DC48E1 /* CartViewPresenter.swift */; };
+		926BDE3B2406EF6400DC48E1 /* CartViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE3A2406EF6400DC48E1 /* CartViewTableViewCell.swift */; };
+		926BDE3D2406FD4F00DC48E1 /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE3C2406FD4F00DC48E1 /* CartTotalTableViewCell.swift */; };
 		926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD792404742A00FBC03A /* LaunchView.swift */; };
 		926FAD7D2404758C00FBC03A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD7C2404758C00FBC03A /* LaunchViewController.swift */; };
 		926FAD812404762B00FBC03A /* LaunchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926FAD802404762B00FBC03A /* LaunchViewPresenter.swift */; };
@@ -82,6 +87,11 @@
 		9220D2C724043D5300E66F1C /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		9220D2C924043ED000E66F1C /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		9220D2CB240441AD00E66F1C /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		926BDE322406E7F900DC48E1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		926BDE362406E82200DC48E1 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		926BDE382406E82F00DC48E1 /* CartViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewPresenter.swift; sourceTree = "<group>"; };
+		926BDE3A2406EF6400DC48E1 /* CartViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewTableViewCell.swift; sourceTree = "<group>"; };
+		926BDE3C2406FD4F00DC48E1 /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
 		926FAD792404742A00FBC03A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		926FAD7C2404758C00FBC03A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		926FAD802404762B00FBC03A /* LaunchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewPresenter.swift; sourceTree = "<group>"; };
@@ -231,6 +241,7 @@
 				926FAD7B2404742E00FBC03A /* Launch */,
 				4BC206C82403B8BE00F250F1 /* Menu */,
 				929EE49E2404819300258DD2 /* Ingredients */,
+				926BDE312406E7E500DC48E1 /* Cart */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -272,6 +283,34 @@
 				9220D2C52404383B00E66F1C /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		926BDE312406E7E500DC48E1 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				926BDE342406E7FD00DC48E1 /* View */,
+				926BDE352406E80400DC48E1 /* Presenter */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		926BDE342406E7FD00DC48E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				926BDE322406E7F900DC48E1 /* CartView.swift */,
+				926BDE3A2406EF6400DC48E1 /* CartViewTableViewCell.swift */,
+				926BDE3C2406FD4F00DC48E1 /* CartTotalTableViewCell.swift */,
+				926BDE362406E82200DC48E1 /* CartViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		926BDE352406E80400DC48E1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				926BDE382406E82F00DC48E1 /* CartViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		926FAD7B2404742E00FBC03A /* Launch */ = {
@@ -472,9 +511,13 @@
 				929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */,
 				926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */,
 				4BC206972403B83800F250F1 /* MenuViewController.swift in Sources */,
+				926BDE332406E7F900DC48E1 /* CartView.swift in Sources */,
+				926BDE392406E82F00DC48E1 /* CartViewPresenter.swift in Sources */,
+				926BDE372406E82200DC48E1 /* CartViewController.swift in Sources */,
 				929EE4A2240481B900258DD2 /* IngredientsViewController.swift in Sources */,
 				4BC206932403B83800F250F1 /* AppDelegate.swift in Sources */,
 				4BC206D22403BE4500F250F1 /* MenuViewPresenter.swift in Sources */,
+				926BDE3D2406FD4F00DC48E1 /* CartTotalTableViewCell.swift in Sources */,
 				92FB94BA2404458C002EB14E /* PizzaTableViewCell.swift in Sources */,
 				92DB56842405AD4B0096CB6A /* IngredientsTableViewCell.swift in Sources */,
 				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
@@ -487,6 +530,7 @@
 				9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */,
 				9220D2CA24043ED000E66F1C /* Drink.swift in Sources */,
 				4BC206CB2403B98700F250F1 /* Builder.swift in Sources */,
+				926BDE3B2406EF6400DC48E1 /* CartViewTableViewCell.swift in Sources */,
 				9216F6E7240465C600B4C40B /* Extensions.swift in Sources */,
 				9216F6E92404669E00B4C40B /* PizzaPriceView.swift in Sources */,
 			);

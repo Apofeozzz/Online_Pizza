@@ -42,9 +42,9 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         
     }
     
-    @objc private func addCartButtonAction() {
+    @objc private func cartButtonAction() {
         
-        presenter.addCartAction()
+        presenter.cartAction()
         
     }
 	
@@ -67,7 +67,7 @@ class MenuViewController: UIViewController, MenuViewProtocol {
 		navigationController?.navigationBar.tintColor = .naviRed
         
 		let attributes = [NSAttributedString.Key.foregroundColor: UIColor.naviRed,
-                          NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
+                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0, weight: UIFont.Weight.heavy)]
         
         navigationController?.navigationBar.titleTextAttributes = attributes
         
@@ -75,7 +75,7 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonAction))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_cart_navbar"), style: .plain, target: self, action: #selector(addCartButtonAction))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_cart_navbar"), style: .plain, target: self, action: #selector(cartButtonAction))
 		
 		navigationController?.setNavigationBarHidden(false, animated: false)
         
