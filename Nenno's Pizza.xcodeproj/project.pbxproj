@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BBF03062407C991007950C2 /* DrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF03052407C991007950C2 /* DrinksView.swift */; };
+		4BBF030A2407C9AB007950C2 /* DrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF03092407C9AB007950C2 /* DrinksViewController.swift */; };
+		4BBF030C2407C9EF007950C2 /* DrinksViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF030B2407C9EF007950C2 /* DrinksViewPresenter.swift */; };
 		4BC206932403B83800F250F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206922403B83800F250F1 /* AppDelegate.swift */; };
 		4BC206952403B83800F250F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206942403B83800F250F1 /* SceneDelegate.swift */; };
 		4BC206972403B83800F250F1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC206962403B83800F250F1 /* MenuViewController.swift */; };
@@ -65,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BBF03052407C991007950C2 /* DrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksView.swift; sourceTree = "<group>"; };
+		4BBF03092407C9AB007950C2 /* DrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewController.swift; sourceTree = "<group>"; };
+		4BBF030B2407C9EF007950C2 /* DrinksViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewPresenter.swift; sourceTree = "<group>"; };
 		4BC2068F2403B83800F250F1 /* Nenno's Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nenno's Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC206922403B83800F250F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BC206942403B83800F250F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BBF03042407C978007950C2 /* Drinks */ = {
+			isa = PBXGroup;
+			children = (
+				4BBF03082407C998007950C2 /* View */,
+				4BBF03072407C993007950C2 /* Presenter */,
+			);
+			path = Drinks;
+			sourceTree = "<group>";
+		};
+		4BBF03072407C993007950C2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				4BBF030B2407C9EF007950C2 /* DrinksViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		4BBF03082407C998007950C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BBF03052407C991007950C2 /* DrinksView.swift */,
+				4BBF03092407C9AB007950C2 /* DrinksViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4BC206862403B83800F250F1 = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +279,7 @@
 				926FAD7B2404742E00FBC03A /* Launch */,
 				4BC206C82403B8BE00F250F1 /* Menu */,
 				929EE49E2404819300258DD2 /* Ingredients */,
+				4BBF03042407C978007950C2 /* Drinks */,
 				926BDE312406E7E500DC48E1 /* Cart */,
 				926BDE3E2407082500DC48E1 /* Checkout */,
 			);
@@ -549,6 +582,7 @@
 				9220D2C824043D5300E66F1C /* Good.swift in Sources */,
 				926FAD7D2404758C00FBC03A /* LaunchViewController.swift in Sources */,
 				926FAD812404762B00FBC03A /* LaunchViewPresenter.swift in Sources */,
+				4BBF030A2407C9AB007950C2 /* DrinksViewController.swift in Sources */,
 				929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */,
 				926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */,
 				4BC206972403B83800F250F1 /* MenuViewController.swift in Sources */,
@@ -563,11 +597,13 @@
 				92DB56842405AD4B0096CB6A /* IngredientsTableViewCell.swift in Sources */,
 				9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */,
 				4BF1602324065C80001B709A /* Cart.swift in Sources */,
+				4BBF03062407C991007950C2 /* DrinksView.swift in Sources */,
 				9220D2C32404367400E66F1C /* MenuView.swift in Sources */,
 				926BDE422407084E00DC48E1 /* CheckoutView.swift in Sources */,
 				929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */,
 				9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */,
 				4BC206952403B83800F250F1 /* SceneDelegate.swift in Sources */,
+				4BBF030C2407C9EF007950C2 /* DrinksViewPresenter.swift in Sources */,
 				4BC2069D2403B83800F250F1 /* Nenno_s_Pizza.xcdatamodeld in Sources */,
 				9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */,
 				9220D2CA24043ED000E66F1C /* Drink.swift in Sources */,

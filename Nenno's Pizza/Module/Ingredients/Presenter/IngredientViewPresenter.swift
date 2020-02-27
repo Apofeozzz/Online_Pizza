@@ -33,7 +33,6 @@ protocol IngredientsViewPresenterProtocol {
 	var cart: Cart? { get set }
 	
 	init(view: IngredientsViewProtocol,
-		 networkManager: NetworkManager,
 		 pizza: Pizza?,
 		 basePrice: Double?,
 		 ingredients: [Good],
@@ -53,8 +52,6 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	
 	weak var view: IngredientsViewProtocol?
 	
-	var networkManager: NetworkManager
-	
 	var ingredients: [Good]
 	
 	var pizza: Pizza?
@@ -68,15 +65,12 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	// MARK: - INIT -
 	
 	required init(view: IngredientsViewProtocol,
-				  networkManager: NetworkManager,
 				  pizza: Pizza?,
 				  basePrice: Double?,
 				  ingredients: [Good],
 				  cart: Cart?) {
 		
 		self.view 			= view
-		
-		self.networkManager = networkManager
 		
 		self.pizza 			= pizza
 		
