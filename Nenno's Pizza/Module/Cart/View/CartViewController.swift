@@ -62,7 +62,7 @@ class CartViewController: UIViewController, CartViewProtocol {
 	
 	func checkTheOrder() {
 		
-		if presenter.cart.pizzas.isEmpty {
+		if presenter.cart.stuff.isEmpty {
 			
 			mainView.checkoutButton.backgroundColor = .lightGray
 			
@@ -126,21 +126,21 @@ extension CartViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		return presenter.cart.pizzas.count + 1
+		return presenter.cart.stuff.count + 1
 		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		if indexPath.row < presenter.cart.pizzas.count {
+		if indexPath.row < presenter.cart.stuff.count {
 			
 			let cell = tableView.dequeueReusableCell(withIdentifier: CartViewTableViewCell.id) as! CartViewTableViewCell
 			
-			let pizza = presenter.cart.pizzas[indexPath.row]
+			let pizza = presenter.cart.stuff[indexPath.row]
 			
 			cell.itemNameLabel.text = pizza.name
 			
-			cell.priceLabel.text 	= "$\(pizza.totalPrice ?? 0)".formatPrice
+			cell.priceLabel.text 	= "$\(pizza.price ?? 0)".formatPrice
 			
 			cell.delete = {[weak self] in
 				

@@ -32,6 +32,9 @@
 		9220D2C824043D5300E66F1C /* Good.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C724043D5300E66F1C /* Good.swift */; };
 		9220D2CA24043ED000E66F1C /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2C924043ED000E66F1C /* Drink.swift */; };
 		9220D2CC240441AD00E66F1C /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9220D2CB240441AD00E66F1C /* Pizza.swift */; };
+		92552D742408352D00B4505C /* DrinksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92552D732408352D00B4505C /* DrinksTableViewCell.swift */; };
+		92552D7624083FD300B4505C /* DrinksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92552D7524083FD300B4505C /* DrinksList.swift */; };
+		92552D7824084C4700B4505C /* OrderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92552D7724084C4700B4505C /* OrderProtocol.swift */; };
 		926BDE332406E7F900DC48E1 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE322406E7F900DC48E1 /* CartView.swift */; };
 		926BDE372406E82200DC48E1 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE362406E82200DC48E1 /* CartViewController.swift */; };
 		926BDE392406E82F00DC48E1 /* CartViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BDE382406E82F00DC48E1 /* CartViewPresenter.swift */; };
@@ -96,6 +99,9 @@
 		9220D2C724043D5300E66F1C /* Good.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Good.swift; sourceTree = "<group>"; };
 		9220D2C924043ED000E66F1C /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		9220D2CB240441AD00E66F1C /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		92552D732408352D00B4505C /* DrinksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksTableViewCell.swift; sourceTree = "<group>"; };
+		92552D7524083FD300B4505C /* DrinksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksList.swift; sourceTree = "<group>"; };
+		92552D7724084C4700B4505C /* OrderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderProtocol.swift; sourceTree = "<group>"; };
 		926BDE322406E7F900DC48E1 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		926BDE362406E82200DC48E1 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		926BDE382406E82F00DC48E1 /* CartViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewPresenter.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4BBF03052407C991007950C2 /* DrinksView.swift */,
+				92552D732408352D00B4505C /* DrinksTableViewCell.swift */,
 				4BBF03092407C9AB007950C2 /* DrinksViewController.swift */,
 			);
 			path = View;
@@ -311,8 +318,10 @@
 				9220D2C724043D5300E66F1C /* Good.swift */,
 				9216F6E1240459B700B4C40B /* GoodsList.swift */,
 				9220D2C924043ED000E66F1C /* Drink.swift */,
+				92552D7524083FD300B4505C /* DrinksList.swift */,
 				9220D2CB240441AD00E66F1C /* Pizza.swift */,
 				4BF1602224065C80001B709A /* Cart.swift */,
+				92552D7724084C4700B4505C /* OrderProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9220D2C824043D5300E66F1C /* Good.swift in Sources */,
+				92552D742408352D00B4505C /* DrinksTableViewCell.swift in Sources */,
 				926FAD7D2404758C00FBC03A /* LaunchViewController.swift in Sources */,
 				926FAD812404762B00FBC03A /* LaunchViewPresenter.swift in Sources */,
 				4BBF030A2407C9AB007950C2 /* DrinksViewController.swift in Sources */,
@@ -611,7 +621,9 @@
 				926BDE3B2406EF6400DC48E1 /* CartViewTableViewCell.swift in Sources */,
 				9216F6E7240465C600B4C40B /* Extensions.swift in Sources */,
 				926BDE442407085700DC48E1 /* CheckoutViewController.swift in Sources */,
+				92552D7824084C4700B4505C /* OrderProtocol.swift in Sources */,
 				926BDE462407086300DC48E1 /* CheckoutPresenter.swift in Sources */,
+				92552D7624083FD300B4505C /* DrinksList.swift in Sources */,
 				9216F6E92404669E00B4C40B /* PizzaPriceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

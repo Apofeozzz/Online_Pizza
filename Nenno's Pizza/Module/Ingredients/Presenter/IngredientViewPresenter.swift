@@ -90,9 +90,9 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 			
 			guard let ss = self else { return }
 			
-			if ss.pizza != nil { ss.pizza!.totalPrice = ss.countPrice() }
+			if ss.pizza != nil { ss.pizza!.price = ss.countPrice() }
 			
-			ss.cart?.pizzas.append(ss.pizza!)
+			ss.cart?.stuff.append(ss.pizza!)
 			
 			ss.view?.addedToCartAction()
 			

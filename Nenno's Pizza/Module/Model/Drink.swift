@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Drink: Decodable {
+struct Drink: Decodable, OrderProtocol {
     
     var id:     UInt
     
     var name:   String
     
-    var price:  Double
+    var price:  Double?
     
 }

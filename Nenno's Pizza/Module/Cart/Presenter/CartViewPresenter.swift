@@ -80,9 +80,9 @@ class CartViewPresenter: CartViewPresenterProtocol {
 		
 		var total: Double = 0
 		
-		for pizza in cart.pizzas {
+		for pizza in cart.stuff {
 		
-			total += pizza.totalPrice ?? 0
+			total += pizza.price ?? 0
 			
 		}
 		
@@ -92,7 +92,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	private func checkoutButtonAction() {
 		
-		if cart.pizzas.isEmpty { return }
+		if cart.stuff.isEmpty { return }
 		
 		let checkoutVC = Builder.checkoutScreen()
 		
@@ -102,7 +102,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	func deleteAction(index: Int) {
 		 
-		cart.pizzas.remove(at: index)
+		cart.stuff.remove(at: index)
 		
 		view?.reloadTableView()
 		

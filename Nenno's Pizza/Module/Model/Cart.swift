@@ -12,6 +12,6 @@ class Cart {
 	
 	static let shared = Cart()
 	
-	var pizzas = [Pizza]()
+	var stuff = [OrderProtocol]()
 	
 }

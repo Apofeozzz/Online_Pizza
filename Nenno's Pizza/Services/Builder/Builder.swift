@@ -47,7 +47,7 @@ class Builder: BuilderProtocol {
 		let networkManager 	= NetworkManager.shared
         
 		let presenter 		= MenuViewPresenter(view: menuVC,
-											networkManager: networkManager)
+												networkManager: networkManager)
         
         menuVC.presenter 	= presenter
         
@@ -79,7 +79,14 @@ class Builder: BuilderProtocol {
 		
 		let cart 			= Cart.shared
 		
-		let presenter 		= DrinksViewPresenter(view: drinksVC, cart: cart)
+		let networkManager  = NetworkManager.shared
+		
+		let drinksList      = DrinksList.shared
+		
+		let presenter 		= DrinksViewPresenter(view: drinksVC,
+													cart: cart,
+													networkManager: networkManager,
+													drinksList: drinksList)
 		
 		drinksVC.presenter 	= presenter
 		
@@ -95,7 +102,9 @@ class Builder: BuilderProtocol {
 		
 		let networkManager 	= NetworkManager.shared
 		
-		let presenter = CartViewPresenter(view: cartVC, cart: cart, networkManager: networkManager)
+		let presenter = CartViewPresenter(view: cartVC,
+										  cart: cart,
+										  networkManager: networkManager)
 		
 		cartVC.presenter = presenter
 		

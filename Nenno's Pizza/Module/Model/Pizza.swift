@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pizza: Decodable {
+struct Pizza: Decodable, OrderProtocol {
     
     var name:           String
     
@@ -16,7 +16,7 @@ struct Pizza: Decodable {
     
     var imageUrl:       String?
 	
-	var totalPrice:		Double?
+	var price:			Double?
 	
 	mutating func addIngredient(id: UInt) {
 		

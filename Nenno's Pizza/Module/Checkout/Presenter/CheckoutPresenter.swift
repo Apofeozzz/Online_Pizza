@@ -48,7 +48,7 @@ class CheckoutViewPresenter: CheckoutViewPresenterProtocol {
 	
 	func cleanTheOrder() {
 		
-		cart.pizzas.removeAll()
+		cart.stuff.removeAll()
 		
 	}
 	
