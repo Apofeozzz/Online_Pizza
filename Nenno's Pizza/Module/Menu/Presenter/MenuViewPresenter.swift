@@ -26,7 +26,7 @@ protocol MenuViewPresenterProtocol: class {
 	
 	init(view: MenuViewProtocol, networkManager: NetworkManager)
 	
-	func addButtonAction()
+	func drinksButtonAction()
 	
 	func cartAction()
 	
@@ -52,9 +52,11 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 		
 	}
 	
-	func addButtonAction() {
+	func drinksButtonAction() {
 		
-		print("Presenter add button action")
+		let drinksVC = Builder.drinksScreen()
+		
+		view?.navigateToNext(controller: drinksVC)
 		
 	}
 	

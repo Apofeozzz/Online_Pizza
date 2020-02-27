@@ -36,9 +36,9 @@ class MenuViewController: UIViewController, MenuViewProtocol {
     
     // MARK: - NAV BAR ACTIONS -
     
-    @objc private func addButtonAction() {
+    @objc private func drinksButtonAction() {
         
-        presenter.addButtonAction()
+        presenter.drinksButtonAction()
         
     }
     
@@ -73,7 +73,7 @@ class MenuViewController: UIViewController, MenuViewProtocol {
         
         navigationItem.title = "NENNO'S PIZZA"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(drinksButtonAction))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "ic_cart_navbar"), style: .plain, target: self, action: #selector(cartButtonAction))
 		

@@ -27,7 +27,22 @@ class DrinksViewController: UIViewController, DrinksViewProtocol {
 		
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		setupNavigationBar()
+		
+	}
+	
 	// MARK: - SETUP VIEW -
+	
+	private func setupNavigationBar() {
+		
+		navigationController?.navigationBar.topItem?.title = " "
+		
+		title = "DRINKS"
+		
+	}
 	
 	private func setupView() {
 		
