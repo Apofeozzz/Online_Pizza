@@ -67,6 +67,8 @@ class DrinksTableViewCell: UITableViewCell {
 	
 	private func setupView() {
 		
+		selectionStyle = .none
+		
 		setupPlusButton()
 		
 		setupPlusImageView()
