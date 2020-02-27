@@ -41,9 +41,9 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 		navigationController?.setNavigationBarHidden(true, animated: true)
 		
-		mainView.whiteBackground.isHidden = false
-		
 		mainView.addedToCartLabelTopConstraint.constant = 0
+		
+		view.isUserInteractionEnabled = false
 		
 		UIView.animate(withDuration: 0.5, delay: 0, options: [], animations: { [weak self] in
 			

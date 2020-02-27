@@ -22,8 +22,6 @@ class IngredientsView: UIView {
 	
 	var addToCartButton:		UIButton!
 	
-	var whiteBackground:		UIView!
-	
 	var addedToCartLabel:		UILabel!
 	
 	// MARK: - CONSTRAINTS -
@@ -58,8 +56,6 @@ class IngredientsView: UIView {
 		setupIngredientsTableView()
 		
 		setupAddToCartButton()
-		
-		setupWhiteBackground()
 		
 		setupAddedToCartLabel()
 		
@@ -146,20 +142,6 @@ class IngredientsView: UIView {
 		
 	}
 	
-	private func setupWhiteBackground() {
-		
-		whiteBackground = UIView()
-		
-		whiteBackground.translatesAutoresizingMaskIntoConstraints = false
-		
-		whiteBackground.backgroundColor = .white
-		
-		whiteBackground.isHidden = true
-		
-		addSubview(whiteBackground)
-		
-	}
-	
 	private func setupAddedToCartLabel() {
 		
 		addedToCartLabel = UILabel()
@@ -224,15 +206,6 @@ class IngredientsView: UIView {
 			addToCartButton.leadingAnchor	.constraint(equalTo: leadingAnchor),
 			addToCartButton.trailingAnchor	.constraint(equalTo: trailingAnchor),
 			addToCartButton.heightAnchor	.constraint(equalToConstant: 50)
-		
-		])
-		
-		NSLayoutConstraint.activate([
-		
-			whiteBackground.topAnchor		.constraint(equalTo: topAnchor),
-			whiteBackground.leadingAnchor	.constraint(equalTo: leadingAnchor),
-			whiteBackground.trailingAnchor	.constraint(equalTo: trailingAnchor),
-			whiteBackground.bottomAnchor	.constraint(equalTo: bottomAnchor)
 		
 		])
 		
