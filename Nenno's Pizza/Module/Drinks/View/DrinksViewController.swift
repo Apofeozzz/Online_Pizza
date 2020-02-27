@@ -54,6 +54,8 @@ class DrinksViewController: UIViewController, DrinksViewProtocol {
 		
 		navigationController?.setNavigationBarHidden(true, animated: true)
 		
+		mainView.drinksTableViewTopConstraint.constant = 40
+		
 		mainView.addedToCartLabelTopConstraint.constant = 0
 		
 		view.isUserInteractionEnabled = false
@@ -70,9 +72,29 @@ class DrinksViewController: UIViewController, DrinksViewProtocol {
 				
 				guard let ss = self else { return }
 				
-				ss.navigationController?.popViewController(animated: true)
+				ss.hideAddedToCartAction()
 				
 			}
+			
+		}
+		
+	}
+	
+	func hideAddedToCartAction() {
+		
+		navigationController?.setNavigationBarHidden(false, animated: true)
+		
+		mainView.drinksTableViewTopConstraint.constant = 0
+		
+		mainView.addedToCartLabelTopConstraint.constant = -100
+		
+		view.isUserInteractionEnabled = true
+		
+		UIView.animate(withDuration: 0.5) { [weak self] in
+			
+			guard let ss = self else { return }
+			
+			ss.view.layoutIfNeeded()
 			
 		}
 		

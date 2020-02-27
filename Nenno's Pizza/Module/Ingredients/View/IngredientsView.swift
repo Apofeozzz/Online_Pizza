@@ -26,7 +26,9 @@ class IngredientsView: UIView {
 	
 	// MARK: - CONSTRAINTS -
 	
-	var addedToCartLabelTopConstraint: NSLayoutConstraint!
+	var backPizzaImageViewTopConstraint: 	NSLayoutConstraint!
+	
+	var addedToCartLabelTopConstraint: 		NSLayoutConstraint!
 	
 	// MARK: - INIT -
 	
@@ -166,9 +168,11 @@ class IngredientsView: UIView {
 	
 	private func setupConstraints() {
 		
+		backPizzaImageViewTopConstraint = backPizzaImageView.topAnchor.constraint(equalTo: topAnchor)
+		
 		NSLayoutConstraint.activate([
 		
-			backPizzaImageView.topAnchor		.constraint(equalTo: topAnchor),
+			backPizzaImageViewTopConstraint,
 			backPizzaImageView.leadingAnchor	.constraint(equalTo: leadingAnchor),
 			backPizzaImageView.trailingAnchor	.constraint(equalTo: trailingAnchor),
 			backPizzaImageView.heightAnchor		.constraint(equalToConstant: 300)

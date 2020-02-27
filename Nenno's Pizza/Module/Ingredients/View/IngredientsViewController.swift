@@ -41,6 +41,8 @@ class IngredientsViewController: UIViewController, IngredientsViewProtocol {
 		
 		navigationController?.setNavigationBarHidden(true, animated: true)
 		
+		mainView.backPizzaImageViewTopConstraint.constant = 40
+		
 		mainView.addedToCartLabelTopConstraint.constant = 0
 		
 		view.isUserInteractionEnabled = false

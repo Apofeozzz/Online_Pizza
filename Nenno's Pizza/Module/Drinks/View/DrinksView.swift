@@ -18,6 +18,8 @@ class DrinksView: UIView {
 	
 	// MARK: - CONSTRAINTS -
 	
+	var drinksTableViewTopConstraint: NSLayoutConstraint!
+	
 	var addedToCartLabelTopConstraint: NSLayoutConstraint!
 	
 	// MARK: - INIT -
@@ -85,9 +87,11 @@ class DrinksView: UIView {
 	
 	private func setupConstraints() {
 		
+		drinksTableViewTopConstraint = drinksTableView.topAnchor.constraint(equalTo: topAnchor)
+		
 		NSLayoutConstraint.activate([
 		
-			drinksTableView.topAnchor		.constraint(equalTo: topAnchor),
+			drinksTableViewTopConstraint,
 			drinksTableView.leadingAnchor	.constraint(equalTo: leadingAnchor),
 			drinksTableView.trailingAnchor	.constraint(equalTo: trailingAnchor),
 			drinksTableView.bottomAnchor	.constraint(equalTo: bottomAnchor)
