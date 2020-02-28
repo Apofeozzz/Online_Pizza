@@ -28,11 +28,18 @@ class Builder: BuilderProtocol {
 	
 	static func launchScreen() -> LaunchViewController {
 		
-		let launchVC = LaunchViewController()
+		let launchVC 		= LaunchViewController()
 		
-		let networkManager = NetworkManager.shared
+		let networkManager 	= NetworkManager.shared
 		
-		let presenter = LaunchViewPresenter(view: launchVC, network: networkManager)
+		let coreDataManager = CoreDataManager.shared
+		
+		let cart 			= Cart.shared
+		
+		let presenter = LaunchViewPresenter(view: 				launchVC,
+											network: 			networkManager,
+											coreDataManager: 	coreDataManager,
+											cart: 				cart)
 		
 		launchVC.presenter = presenter
 		
@@ -83,10 +90,10 @@ class Builder: BuilderProtocol {
 		
 		let drinksList      = DrinksList.shared
 		
-		let presenter 		= DrinksViewPresenter(view: drinksVC,
-													cart: cart,
+		let presenter 		= DrinksViewPresenter(view: 			drinksVC,
+													cart: 			cart,
 													networkManager: networkManager,
-													drinksList: drinksList)
+													drinksList: 	drinksList)
 		
 		drinksVC.presenter 	= presenter
 		
@@ -102,9 +109,9 @@ class Builder: BuilderProtocol {
 		
 		let networkManager 	= NetworkManager.shared
 		
-		let presenter = CartViewPresenter(view: cartVC,
-										  cart: cart,
-										  networkManager: networkManager)
+		let presenter = CartViewPresenter(view: 			cartVC,
+										  cart: 			cart,
+										  networkManager: 	networkManager)
 		
 		cartVC.presenter = presenter
 		

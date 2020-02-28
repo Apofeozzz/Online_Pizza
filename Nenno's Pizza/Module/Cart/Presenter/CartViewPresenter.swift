@@ -92,7 +92,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	private func checkoutButtonAction() {
 		
-		if cart.stuff.isEmpty { return }
+		cart.cleanCart()
 		
 		let checkoutVC = Builder.checkoutScreen()
 		
@@ -102,7 +102,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	func deleteAction(index: Int) {
 		 
-		cart.stuff.remove(at: index)
+		cart.deleteStuff(at: index)
 		
 		view?.reloadTableView()
 		

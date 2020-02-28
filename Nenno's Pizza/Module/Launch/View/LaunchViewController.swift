@@ -25,6 +25,8 @@ class LaunchViewController: UIViewController, LaunchViewProtocol {
 		
 		presenter?.downloadStaff()
 		
+		presenter?.fetchCartData()
+		
 	}
 	
 	// MARK: - NAVIGATION -

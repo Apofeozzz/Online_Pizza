@@ -16,27 +16,45 @@ protocol LaunchViewProtocol: class {
 
 protocol LaunchViewPresenterProtocol {
 	
-	var view: LaunchViewProtocol? { set get }
+	var view: 				LaunchViewProtocol? { set get }
 	
-	var networkManager: NetworkManager? { set get }
+	var networkManager: 	NetworkManager? { set get }
 	
-	init(view: LaunchViewProtocol, network: NetworkManager)
+	var coreDataManager: 	CoreDataManager { set get }
+	
+	init(view: 				LaunchViewProtocol,
+		 network: 			NetworkManager,
+		 coreDataManager: 	CoreDataManager,
+		 cart: 				Cart)
 	
 	func downloadStaff()
+	
+	func fetchCartData()
 	
 }
 
 class LaunchViewPresenter: LaunchViewPresenterProtocol {
 	
-	weak var view: LaunchViewProtocol?
+	weak var view: 			LaunchViewProtocol?
 	
-	var networkManager: NetworkManager?
+	var networkManager: 	NetworkManager?
 	
-	required init(view: LaunchViewProtocol, network: NetworkManager) {
+	var coreDataManager: 	CoreDataManager
+	
+	var cart: 				Cart
+	
+	required init(view: 			LaunchViewProtocol,
+				  network: 			NetworkManager,
+				  coreDataManager: 	CoreDataManager,
+				  cart: 			Cart) {
 		
-		self.view = view
+		self.view 				= view
 		
-		self.networkManager = network
+		self.networkManager 	= network
+		
+		self.coreDataManager 	= coreDataManager
+		
+		self.cart 				= cart
 		
 	}
 	
@@ -61,6 +79,29 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 			ss.view?.moveToMenuController()
 			
 		})
+		
+	}
+	
+	func fetchCartData() {
+		
+		coreDataManager.fetchOrderInBackgroundContext { [weak self] (orders) in
+			
+			guard let ss = self else { return }
+			
+			for order in orders {
+				
+				guard let order = ss.coreDataManager
+					.persistentContainer
+					.viewContext
+					.object(with: order.objectID) as? Order else { continue }
+				
+				let item = Drink(id: 0, name: order.name!, price: order.price)
+				
+				ss.cart.stuff.append(item)
+				
+			}
+			
+		}
 		
 	}
 	

@@ -30,13 +30,13 @@ protocol IngredientsViewPresenterProtocol {
 	
 	var basePrice: Double? { get set }
 	
-	var cart: Cart? { get set }
+	var cart: Cart { get set }
 	
 	init(view: IngredientsViewProtocol,
 		 pizza: Pizza?,
 		 basePrice: Double?,
 		 ingredients: [Good],
-		 cart: Cart?)
+		 cart: Cart)
 	
 	func setupSubscriptions()
 	
@@ -58,7 +58,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	
 	var basePrice: Double?
 	
-	var cart: Cart?
+	var cart: Cart
 	
 	let disposeBag = DisposeBag()
 	
@@ -68,7 +68,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 				  pizza: Pizza?,
 				  basePrice: Double?,
 				  ingredients: [Good],
-				  cart: Cart?) {
+				  cart: Cart) {
 		
 		self.view 			= view
 		
@@ -92,7 +92,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 			
 			if ss.pizza != nil { ss.pizza!.price = ss.countPrice() }
 			
-			ss.cart?.stuff.append(ss.pizza!)
+			ss.cart.appendStuff(good: ss.pizza!)
 			
 			ss.view?.addedToCartAction()
 			

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B311C7224090BB2007716AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B311C7124090BB2007716AE /* CoreDataManager.swift */; };
+		4B311C7D24090DBA007716AE /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B311C7B24090DBA007716AE /* Order+CoreDataClass.swift */; };
+		4B311C7E24090DBA007716AE /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B311C7C24090DBA007716AE /* Order+CoreDataProperties.swift */; };
 		4BBF03062407C991007950C2 /* DrinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF03052407C991007950C2 /* DrinksView.swift */; };
 		4BBF030A2407C9AB007950C2 /* DrinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF03092407C9AB007950C2 /* DrinksViewController.swift */; };
 		4BBF030C2407C9EF007950C2 /* DrinksViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBF030B2407C9EF007950C2 /* DrinksViewPresenter.swift */; };
@@ -71,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B311C7124090BB2007716AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4B311C7B24090DBA007716AE /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4B311C7C24090DBA007716AE /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BBF03052407C991007950C2 /* DrinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksView.swift; sourceTree = "<group>"; };
 		4BBF03092407C9AB007950C2 /* DrinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewController.swift; sourceTree = "<group>"; };
 		4BBF030B2407C9EF007950C2 /* DrinksViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksViewPresenter.swift; sourceTree = "<group>"; };
@@ -266,7 +272,10 @@
 		4BC206C92403B96C00F250F1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4B311C7B24090DBA007716AE /* Order+CoreDataClass.swift */,
+				4B311C7C24090DBA007716AE /* Order+CoreDataProperties.swift */,
 				4BC2069B2403B83800F250F1 /* Nenno_s_Pizza.xcdatamodeld */,
+				4B311C7124090BB2007716AE /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -595,6 +604,7 @@
 				4BBF030A2407C9AB007950C2 /* DrinksViewController.swift in Sources */,
 				929EE4A6240481ED00258DD2 /* IngredientViewPresenter.swift in Sources */,
 				926FAD7A2404742A00FBC03A /* LaunchView.swift in Sources */,
+				4B311C7D24090DBA007716AE /* Order+CoreDataClass.swift in Sources */,
 				4BC206972403B83800F250F1 /* MenuViewController.swift in Sources */,
 				926BDE332406E7F900DC48E1 /* CartView.swift in Sources */,
 				926BDE392406E82F00DC48E1 /* CartViewPresenter.swift in Sources */,
@@ -610,6 +620,7 @@
 				4BBF03062407C991007950C2 /* DrinksView.swift in Sources */,
 				9220D2C32404367400E66F1C /* MenuView.swift in Sources */,
 				926BDE422407084E00DC48E1 /* CheckoutView.swift in Sources */,
+				4B311C7224090BB2007716AE /* CoreDataManager.swift in Sources */,
 				929EE4A0240481AD00258DD2 /* IngredientsView.swift in Sources */,
 				9220D2C62404383B00E66F1C /* NetworkManager.swift in Sources */,
 				4BC206952403B83800F250F1 /* SceneDelegate.swift in Sources */,
@@ -618,6 +629,7 @@
 				9216F6E2240459B700B4C40B /* GoodsList.swift in Sources */,
 				9220D2CA24043ED000E66F1C /* Drink.swift in Sources */,
 				4BC206CB2403B98700F250F1 /* Builder.swift in Sources */,
+				4B311C7E24090DBA007716AE /* Order+CoreDataProperties.swift in Sources */,
 				926BDE3B2406EF6400DC48E1 /* CartViewTableViewCell.swift in Sources */,
 				9216F6E7240465C600B4C40B /* Extensions.swift in Sources */,
 				926BDE442407085700DC48E1 /* CheckoutViewController.swift in Sources */,

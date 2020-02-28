@@ -14,4 +14,36 @@ class Cart {
 	
 	var stuff = [OrderProtocol]()
 	
+	func appendStuff(good: OrderProtocol) {
+		
+		stuff.append(good)
+		
+		let order 	= Order()
+		
+		order.name 	= good.name
+		
+		order.price = good.price!
+		
+		CoreDataManager.shared.saveContext()
+		
+	}
+	
+	func deleteStuff(at index: Int) {
+		
+		let good = stuff[index]
+		
+		stuff.remove(at: index)
+		
+		CoreDataManager.shared.deleteOrder(good)
+		
+	}
+	
+	func cleanCart() {
+		
+		stuff.removeAll()
+		
+		CoreDataManager.shared.cleanCoreData()
+		
+	}
+	
 }

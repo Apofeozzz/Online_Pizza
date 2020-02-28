@@ -96,7 +96,7 @@ class DrinksViewPresenter: DrinksViewPresenterProtocol {
 	
 	func plusButtonAction(index: Int) {
 		
-		cart.stuff.append(drinksList.drinks[index])
+		cart.appendStuff(good: drinksList.drinks[index])
 			
 		view?.addedToCartAction()
 
