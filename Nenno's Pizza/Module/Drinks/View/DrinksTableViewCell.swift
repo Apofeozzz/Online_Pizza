@@ -10,6 +10,8 @@ import UIKit
 
 class DrinksTableViewCell: UITableViewCell {
 	
+	// MARK: - CELL ID -
+	
 	static let id = "DrinksTableViewCell"
 	
 	// MARK: - UIVIEW -

@@ -24,7 +24,7 @@ protocol IngredientsViewProtocol: class {
 
 protocol IngredientsViewPresenterProtocol {
 	
-	var ingredients: [Good] { set get }
+	var ingredients: [Ingredient] { set get }
 	
 	var pizza: Pizza? { get set }
 	
@@ -35,7 +35,7 @@ protocol IngredientsViewPresenterProtocol {
 	init(view: IngredientsViewProtocol,
 		 pizza: Pizza?,
 		 basePrice: Double?,
-		 ingredients: [Good],
+		 ingredients: [Ingredient],
 		 cart: Cart)
 	
 	func setupSubscriptions()
@@ -52,7 +52,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	
 	weak var view: IngredientsViewProtocol?
 	
-	var ingredients: [Good]
+	var ingredients: [Ingredient]
 	
 	var pizza: Pizza?
 	
@@ -67,7 +67,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 	required init(view: IngredientsViewProtocol,
 				  pizza: Pizza?,
 				  basePrice: Double?,
-				  ingredients: [Good],
+				  ingredients: [Ingredient],
 				  cart: Cart) {
 		
 		self.view 			= view
@@ -82,6 +82,8 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 		
 	}
 	
+	// MARK: - SETUP SUBSCRIPTIONS -
+	
 	func setupSubscriptions() {
 		
 		view?.mainView.addToCartButton.rx.controlEvent(.touchUpInside).subscribe(onNext: {[weak self] (_) in
@@ -92,7 +94,7 @@ class IngredientsViewPresenter: IngredientsViewPresenterProtocol {
 			
 			if ss.pizza != nil { ss.pizza!.price = ss.countPrice() }
 			
-			ss.cart.appendStuff(good: ss.pizza!)
+			ss.cart.appendToOrder(good: ss.pizza!)
 			
 			ss.view?.addedToCartAction()
 			

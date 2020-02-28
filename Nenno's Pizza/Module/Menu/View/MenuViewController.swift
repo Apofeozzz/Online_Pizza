@@ -130,6 +130,8 @@ class MenuViewController: UIViewController, MenuViewProtocol {
 
 }
 
+// MARK: - UITABLEVIEW DELEGATE -
+
 extension MenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -8,11 +8,15 @@
 
 import UIKit
 
+// MARK: - VIEW PROTOCOL -
+
 protocol CheckoutViewProtocol: class {
 	
 	func backToMenu(controller: UIViewController)
 	
 }
+
+// MARK: - PRESENTER PROTOCOL -
 
 protocol CheckoutViewPresenterProtocol {
 	
@@ -23,6 +27,8 @@ protocol CheckoutViewPresenterProtocol {
 	func backToMenuController()
 	
 }
+
+// MARK: - PRESENTER -
 
 class CheckoutViewPresenter: CheckoutViewPresenterProtocol {
 	
@@ -48,7 +54,7 @@ class CheckoutViewPresenter: CheckoutViewPresenterProtocol {
 	
 	func cleanTheOrder() {
 		
-		cart.stuff.removeAll()
+		cart.order.removeAll()
 		
 	}
 	

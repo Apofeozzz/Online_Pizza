@@ -12,27 +12,21 @@ class Cart {
 	
 	static let shared = Cart()
 	
-	var stuff = [OrderProtocol]()
+	var order = [OrderProtocol]()
 	
-	func appendStuff(good: OrderProtocol) {
+	func appendToOrder(good: OrderProtocol) {
 		
-		stuff.append(good)
+		order.append(good)
 		
-		let order 	= Order()
-		
-		order.name 	= good.name
-		
-		order.price = good.price!
-		
-		CoreDataManager.shared.saveContext()
+		CoreDataManager.shared.addToOrder(good)
 		
 	}
 	
-	func deleteStuff(at index: Int) {
+	func deleteInOrder(at index: Int) {
 		
-		let good = stuff[index]
+		let good = order[index]
 		
-		stuff.remove(at: index)
+		order.remove(at: index)
 		
 		CoreDataManager.shared.deleteOrder(good)
 		
@@ -40,7 +34,7 @@ class Cart {
 	
 	func cleanCart() {
 		
-		stuff.removeAll()
+		order.removeAll()
 		
 		CoreDataManager.shared.cleanCoreData()
 		

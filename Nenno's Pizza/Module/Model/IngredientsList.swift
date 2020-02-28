@@ -8,10 +8,10 @@
 
 import Foundation
 
-class GoodsList {
+class IngredientsList {
 	
-	static let shared = GoodsList()
+	static let shared = IngredientsList()
 	
-	var goods = [Good]()
+	var goods = [Ingredient]()
 	
 }

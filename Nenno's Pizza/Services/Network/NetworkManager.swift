@@ -15,8 +15,10 @@ class NetworkManager {
     let session = URLSession.shared
     
     // MARK: - NETWORK REQUESTS -
+	
+	// MARK: - INGREDIENTS -
     
-    func downloadGoods(completion: @escaping (_ goods: [Good]?, _ error: Error?) -> Void) {
+    func downloadIngredients(completion: @escaping (_ goods: [Ingredient]?, _ error: Error?) -> Void) {
         
         guard let url = URL(string: "https://api.myjson.com/bins/ozt3z") else { return }
         
@@ -34,7 +36,7 @@ class NetworkManager {
                 
                 do {
                     
-                let goods = try JSONDecoder().decode(Array<Good>.self, from: data)
+                let goods = try JSONDecoder().decode(Array<Ingredient>.self, from: data)
                 
                     completion(goods, nil)
                     
@@ -77,6 +79,8 @@ class NetworkManager {
         }.resume()
         
     }
+	
+	// MARK: - PIZZAS -
     
     func downloadPizzas(completion: @escaping (_ pizzas: Pizzas?, _ error: Error?) -> Void) {
         

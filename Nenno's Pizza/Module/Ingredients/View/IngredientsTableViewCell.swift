@@ -10,11 +10,13 @@ import UIKit
 
 class IngredientsTableViewCell: UITableViewCell {
 	
+	// MARK: - CELL ID -
+	
 	static let id = "IngredientsTableViewCell"
 	
 	// MARK: - DATA SOURCE -
 	
-	var ingredient: Good? {
+	var ingredient: Ingredient? {
 		
 		didSet {
 		

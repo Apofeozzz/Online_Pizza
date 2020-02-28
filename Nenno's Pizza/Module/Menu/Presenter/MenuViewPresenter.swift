@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - VIEW PROTOCOL -
+
 protocol MenuViewProtocol: class {
 	
 	func reload()
@@ -15,6 +17,8 @@ protocol MenuViewProtocol: class {
 	func navigateToNext(controller: UIViewController)
 	
 }
+
+// MARK: - PRESENTER PROTOCOL -
 
 protocol MenuViewPresenterProtocol: class {
 	
@@ -34,13 +38,19 @@ protocol MenuViewPresenterProtocol: class {
 	
 }
 
+// MARK: - PRESENTER -
+
 class MenuViewPresenter: MenuViewPresenterProtocol {
+	
+	// MARK: - DATA SOURCE -
 	
 	weak var view: MenuViewProtocol?
 	
 	var networkManager: NetworkManager?
 	
 	var pizzas: Pizzas?
+	
+	// MARK: - INIT -
 	
 	required init(view: MenuViewProtocol, networkManager: NetworkManager) {
 		
@@ -51,6 +61,8 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 		downloadPizzas()
 		
 	}
+	
+	// MARK: - ACTIONS -
 	
 	func drinksButtonAction() {
 		
@@ -67,6 +79,21 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 		view?.navigateToNext(controller: cartVC)
 		
 	}
+	
+	func selectPizza(index: Int) {
+		
+		let basePrice 	= pizzas?.basePrice
+		
+		let pizza 		= pizzas?.pizzas[index]
+		
+		let vc 			= Builder.ingredientsScreen(pizza: pizza,
+													basePrice: basePrice)
+		
+		view?.navigateToNext(controller: vc)
+		
+	}
+	
+	// MARK: - GET DATA -
 	
 	func downloadPizzas() {
 		
@@ -91,19 +118,6 @@ class MenuViewPresenter: MenuViewPresenterProtocol {
 			}
 			
 		})
-		
-	}
-	
-	func selectPizza(index: Int) {
-		
-		let basePrice 	= pizzas?.basePrice
-		
-		let pizza 		= pizzas?.pizzas[index]
-		
-		let vc 			= Builder.ingredientsScreen(pizza: pizza,
-													basePrice: basePrice)
-		
-		view?.navigateToNext(controller: vc)
 		
 	}
 	

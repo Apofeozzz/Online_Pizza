@@ -62,7 +62,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 		
 	}
 	
-	// MARK: - ACTIONS -
+	// MARK: - SETUP SUBSCRIPTIONS -
 	
 	func setupSubscriptions() {
 		
@@ -76,11 +76,13 @@ class CartViewPresenter: CartViewPresenterProtocol {
 		
 	}
 	
+	// MARK: - ACTIONS -
+	
 	func countTotal() -> Double {
 		
 		var total: Double = 0
 		
-		for pizza in cart.stuff {
+		for pizza in cart.order {
 		
 			total += pizza.price ?? 0
 			
@@ -102,7 +104,7 @@ class CartViewPresenter: CartViewPresenterProtocol {
 	
 	func deleteAction(index: Int) {
 		 
-		cart.deleteStuff(at: index)
+		cart.deleteInOrder(at: index)
 		
 		view?.reloadTableView()
 		

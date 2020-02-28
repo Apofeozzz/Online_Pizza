@@ -51,7 +51,7 @@ class PizzaTableViewCell: UITableViewCell {
 			
 			for (index, ingredient) in ingredients.enumerated() {
 				
-				for good in GoodsList.shared.goods {
+				for good in IngredientsList.shared.goods {
 					
 					if good.id == ingredient {
 						

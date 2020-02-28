@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - PROTOCOL -
+
 protocol BuilderProtocol: class {
 	
 	static func launchScreen() -> LaunchViewController
@@ -24,7 +26,13 @@ protocol BuilderProtocol: class {
 	
 }
 
+// MARK: - BUILDER -
+
 class Builder: BuilderProtocol {
+	
+	// MARK: - MODULES -
+	
+	// MARK: - LAUNCH -
 	
 	static func launchScreen() -> LaunchViewController {
 		
@@ -34,12 +42,9 @@ class Builder: BuilderProtocol {
 		
 		let coreDataManager = CoreDataManager.shared
 		
-		let cart 			= Cart.shared
-		
 		let presenter = LaunchViewPresenter(view: 				launchVC,
 											network: 			networkManager,
-											coreDataManager: 	coreDataManager,
-											cart: 				cart)
+											coreDataManager: 	coreDataManager)
 		
 		launchVC.presenter = presenter
 		
@@ -47,6 +52,8 @@ class Builder: BuilderProtocol {
 		
 	}
 
+	// MARK: - MENU -
+	
     static func menuScreen() -> MenuViewController {
         
         let menuVC 			= MenuViewController()
@@ -62,11 +69,13 @@ class Builder: BuilderProtocol {
         
     }
 	
+	// MARK: - INGREDIENT -
+	
 	static func ingredientsScreen(pizza: Pizza?, basePrice: Double?) -> IngredientsViewController {
 		
 		let ingredientsVC 	= IngredientsViewController()
 		
-		let goods 			= GoodsList.shared.goods
+		let goods 			= IngredientsList.shared.goods
 		
 		let presenter = IngredientsViewPresenter(view: 				ingredientsVC,
 												 pizza: 			pizza,
@@ -79,6 +88,8 @@ class Builder: BuilderProtocol {
 		return ingredientsVC;
 		
 	}
+	
+	// MARK: - DRINK -
 	
 	static func drinksScreen() -> DrinksViewController {
 		
@@ -100,6 +111,8 @@ class Builder: BuilderProtocol {
 		return drinksVC
 		
 	}
+	
+	// MARK: - CART -
     
 	static func cartScreen() -> CartViewController {
 		
@@ -118,6 +131,8 @@ class Builder: BuilderProtocol {
 		return cartVC
 		
 	}
+	
+	// MARK: - CHECKOUT -
 	
 	static func checkoutScreen() -> CheckoutViewController {
 		

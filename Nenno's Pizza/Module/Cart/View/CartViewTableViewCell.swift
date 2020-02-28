@@ -10,6 +10,8 @@ import UIKit
 
 class CartViewTableViewCell: UITableViewCell {
 	
+	// MARK: - CELL ID -
+	
 	static let id = "CartViewTableViewCell"
 	
 	// MARK: - UIVIEW -

@@ -8,11 +8,15 @@
 
 import UIKit
 
+// MARK: - VIEW PROTOCOL -
+
 protocol LaunchViewProtocol: class {
 	
 	func moveToMenuController()
 	
 }
+
+// MARK: - PRESENTER PROTOCOL -
 
 protocol LaunchViewPresenterProtocol {
 	
@@ -24,8 +28,7 @@ protocol LaunchViewPresenterProtocol {
 	
 	init(view: 				LaunchViewProtocol,
 		 network: 			NetworkManager,
-		 coreDataManager: 	CoreDataManager,
-		 cart: 				Cart)
+		 coreDataManager: 	CoreDataManager)
 	
 	func downloadStaff()
 	
@@ -33,7 +36,11 @@ protocol LaunchViewPresenterProtocol {
 	
 }
 
+// MARK: - PRESENTER -
+
 class LaunchViewPresenter: LaunchViewPresenterProtocol {
+	
+	// MARK: - DATA SOURCE -
 	
 	weak var view: 			LaunchViewProtocol?
 	
@@ -41,12 +48,11 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 	
 	var coreDataManager: 	CoreDataManager
 	
-	var cart: 				Cart
+	// MARK: - INIT -
 	
 	required init(view: 			LaunchViewProtocol,
 				  network: 			NetworkManager,
-				  coreDataManager: 	CoreDataManager,
-				  cart: 			Cart) {
+				  coreDataManager: 	CoreDataManager) {
 		
 		self.view 				= view
 		
@@ -54,13 +60,13 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 		
 		self.coreDataManager 	= coreDataManager
 		
-		self.cart 				= cart
-		
 	}
+	
+	// MARK: - GET DATA -
 	
 	func downloadStaff() {
 		
-		networkManager?.downloadGoods(completion: { [weak self] (goods, error) in
+		networkManager?.downloadIngredients(completion: { [weak self] (goods, error) in
 			
 			guard let ss = self else { return }
 			
@@ -74,7 +80,7 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 			
 			guard let goods = goods else { fatalError("No goods!") }
 			
-			GoodsList.shared.goods = goods
+			IngredientsList.shared.goods = goods
 			
 			ss.view?.moveToMenuController()
 			
@@ -84,24 +90,7 @@ class LaunchViewPresenter: LaunchViewPresenterProtocol {
 	
 	func fetchCartData() {
 		
-		coreDataManager.fetchOrderInBackgroundContext { [weak self] (orders) in
-			
-			guard let ss = self else { return }
-			
-			for order in orders {
-				
-				guard let order = ss.coreDataManager
-					.persistentContainer
-					.viewContext
-					.object(with: order.objectID) as? Order else { continue }
-				
-				let item = Drink(id: 0, name: order.name!, price: order.price)
-				
-				ss.cart.stuff.append(item)
-				
-			}
-			
-		}
+		coreDataManager.fetchCartData()
 		
 	}
 	

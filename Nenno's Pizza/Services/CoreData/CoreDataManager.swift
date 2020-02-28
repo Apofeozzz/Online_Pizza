@@ -49,7 +49,45 @@ class CoreDataManager {
 		
 	}
 	
-	// MARK: - CLEAN -
+	// MARK: - DOWNLOAD ORDER -
+	
+	func fetchCartData() {
+		
+		fetchOrderInBackgroundContext { [weak self] (orders) in
+			
+			guard let ss = self else { return }
+			
+			for order in orders {
+				
+				guard let order = ss.persistentContainer
+									.viewContext
+									.object(with: order.objectID) as? Order else { continue }
+				
+				let item = Drink(id: 0, name: order.name!, price: order.price)
+				
+				Cart.shared.order.append(item)
+				
+			}
+			
+		}
+		
+	}
+	
+	// MARK: - ADD -
+	
+	func addToOrder(_ good: OrderProtocol) {
+		
+		let order 	= Order()
+		
+		order.name 	= good.name
+		
+		order.price = good.price!
+		
+		saveContext()
+		
+	}
+	
+	// MARK: - DELETE -
 	
 	func deleteOrder(_ good: OrderProtocol) {
 		
@@ -78,6 +116,8 @@ class CoreDataManager {
 		}
 		
 	}
+	
+	// MARK: - CLEAN -
 	
 	func cleanCoreData() {
 		

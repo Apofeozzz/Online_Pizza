@@ -40,6 +40,8 @@ class LaunchView: UIView {
 		
 	}
 	
+	// MARK: - SETUP APPNAME LABEL -
+	
 	private func setupAppNameLabel() {
 		
 		appNameLabel = UILabel()

@@ -10,6 +10,8 @@ import UIKit
 
 class LaunchViewController: UIViewController, LaunchViewProtocol {
 	
+	// MARK: - PRESENTER -
+	
 	var presenter: LaunchViewPresenterProtocol?
 	
 	// MARK: - UIVIEW -
@@ -56,6 +58,8 @@ class LaunchViewController: UIViewController, LaunchViewProtocol {
 		setupConstraints()
 		
 	}
+	
+	// MARK: - SETUP MAIN VIEW -
 	
 	private func setupMainView() {
 		

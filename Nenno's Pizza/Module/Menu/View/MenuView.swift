@@ -38,6 +38,8 @@ class MenuView: UIView {
         setupConstraints()
         
     }
+	
+	// MARK: - SETUP PIZZA TABLE VIEW -
     
     private func setupPizzaTableView() {
         

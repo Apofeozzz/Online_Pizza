@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// MARK: - VIEW PROTOCOL -
+
 protocol DrinksViewProtocol: class {
 	
 	var mainView: DrinksView! { get set }
@@ -19,6 +21,8 @@ protocol DrinksViewProtocol: class {
 	func addedToCartAction()
 	
 }
+
+// MARK: - PRESENTER PROTOCOL -
 
 protocol DrinksViewPresenterProtocol {
 	
@@ -38,6 +42,8 @@ protocol DrinksViewPresenterProtocol {
 	func plusButtonAction(index: Int)
 	
 }
+
+// MARK: - PRESENTER -
 
 class DrinksViewPresenter: DrinksViewPresenterProtocol {
 	
@@ -70,6 +76,16 @@ class DrinksViewPresenter: DrinksViewPresenterProtocol {
 	
 	// MARK: - ACTIONS -
 	
+	func plusButtonAction(index: Int) {
+		
+		cart.appendToOrder(good: drinksList.drinks[index])
+			
+		view?.addedToCartAction()
+
+	}
+	
+	// MARK: - GET DATA -
+	
 	func downloadDrinks() {
 		
 		networkManager.downloadDrinks { [weak self] (stuff, error) in
@@ -93,13 +109,5 @@ class DrinksViewPresenter: DrinksViewPresenterProtocol {
 		}
 		
 	}
-	
-	func plusButtonAction(index: Int) {
-		
-		cart.appendStuff(good: drinksList.drinks[index])
-			
-		view?.addedToCartAction()
 
-	}
-	
 }

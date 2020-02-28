@@ -28,7 +28,7 @@ class Nenno_s_PizzaTests: XCTestCase {
 		let pizzasTestArray = [Pizza(name: "Test 1", ingredients: [], imageUrl: nil, price: 6.2),
 							   Pizza(name: "Test 2", ingredients: [], imageUrl: nil, price: 8.5)]
 		
-		cart.stuff = pizzasTestArray
+		cart.order = pizzasTestArray
 		
 		let total = cartPresenter.countTotal()
 		

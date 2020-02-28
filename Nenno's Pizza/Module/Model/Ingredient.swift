@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Good: Decodable {
+struct Ingredient: Decodable {
     
     var id:     UInt
     
